@@ -1,6 +1,7 @@
 package kent.bdtest;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -41,6 +42,8 @@ public class SignUp extends Activity {
                 pi.setPassword(pass1Str);
 
                 helper.insertInfo(pi);
+
+                Intent intent = new Intent(SignUp.this, MainActivity.class);
             }
         }
     }
