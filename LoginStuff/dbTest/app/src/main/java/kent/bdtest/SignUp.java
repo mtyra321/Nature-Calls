@@ -17,8 +17,8 @@ public class SignUp extends Activity {
 
     TextView textview2;
 
-//    FirebaseDatabase rootNode;
-//    DatabaseReference reference;
+    FirebaseDatabase rootNode;
+    DatabaseReference reference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
