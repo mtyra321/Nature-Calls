@@ -1,7 +1,7 @@
 package com.dukeapps.naturecalls;
 
 import java.util.List;
-
+//will store the data on the bathrooms
 public class Bathroom {
     private String name;
     private String description;
