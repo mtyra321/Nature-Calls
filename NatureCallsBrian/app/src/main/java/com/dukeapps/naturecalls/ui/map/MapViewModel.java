@@ -1,4 +1,4 @@
-package com.dukeapps.naturecalls.ui.dashboard;
+package com.dukeapps.naturecalls.ui.map;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;

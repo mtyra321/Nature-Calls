@@ -1,4 +1,4 @@
-package com.dukeapps.naturecalls.ui.notifications;
+package com.dukeapps.naturecalls.ui.settings;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
