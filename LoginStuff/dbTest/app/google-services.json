@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "751530628872",
+    "firebase_url": "https://nature-call.firebaseio.com",
+    "project_id": "nature-call",
+    "storage_bucket": "nature-call.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:751530628872:android:0dedfa58b16a36f31fbebd",
+        "android_client_info": {
+          "package_name": "kent.bdtest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "751530628872-utlvrffcjs31jormoqsc3mbfgso290c2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "kent.bdtest",
+            "certificate_hash": "0877d4ce1e973058c23513693797056320e80f29"
+          }
+        },
+        {
+          "client_id": "751530628872-jh7lesku5d7goh8a4be0p7j88lsmouco.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDiKbvJe2680O6KkmC7N2HIwft0bhn69Rg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "751530628872-jh7lesku5d7goh8a4be0p7j88lsmouco.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
