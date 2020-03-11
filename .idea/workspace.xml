@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2ac43979-f721-481d-8cea-902ad245cdc8" name="Default Changelist" comment="" />
+    <list default="true" id="34f705c6-88db-4388-a9ff-dff574b949d8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/NatureCallsBrian/app/src/main/java/com/dukeapps/naturecalls/ui/map/MapFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/NatureCallsBrian/app/src/main/java/com/dukeapps/naturecalls/ui/map/MapFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NatureCallsBrian/app/src/main/res/layout/fragment_map.xml" beforeDir="false" afterPath="$PROJECT_DIR$/NatureCallsBrian/app/src/main/res/layout/fragment_map.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -11,16 +14,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IgnoredFileRootStore">
-    <option name="generatedRoots">
-      <set>
-        <option value="C:\Users\jason\Nature Calls\Nature-Calls-2020\.idea" />
-      </set>
-    </option>
-  </component>
-  <component name="ProjectId" id="1Yu9A3TM74DtYrRZvgSQ52ijG0G" />
+  <component name="ProjectId" id="1YhAscDSzNZW899RjRIA9FDYh23" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/NatureCallsMaster" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Nature-Calls-2020/LoginStuff/dbTest" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -39,11 +36,11 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="2ac43979-f721-481d-8cea-902ad245cdc8" name="Default Changelist" comment="" />
-      <created>1583781464827</created>
+      <changelist id="34f705c6-88db-4388-a9ff-dff574b949d8" name="Default Changelist" comment="" />
+      <created>1583384659582</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1583781464827</updated>
+      <updated>1583384659582</updated>
     </task>
     <servers />
   </component>
@@ -52,7 +49,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
