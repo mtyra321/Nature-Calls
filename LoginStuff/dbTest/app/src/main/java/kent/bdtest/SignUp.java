@@ -5,16 +5,28 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class SignUp extends Activity {
 
     dbHelper helper = new dbHelper(this);
 
+    TextView textview2;
+
+    FirebaseDatabase rootNode;
+    DatabaseReference reference;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.signup);
+
+        textview2 = (TextView)findViewById(R.id.textView2);
+
     }
 
     public void onSignUpClick(View view) {

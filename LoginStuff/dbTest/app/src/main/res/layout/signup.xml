@@ -73,6 +73,22 @@
             android:text="Sign Up"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tfPass2" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="100dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="206dp"
+            android:layout_marginLeft="206dp"
+            android:layout_marginTop="44dp"
+            android:layout_marginEnd="151dp"
+            android:layout_marginRight="151dp"
+            android:text="hello"
+            android:textSize="36sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>
