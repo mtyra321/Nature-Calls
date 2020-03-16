@@ -18,7 +18,7 @@
             android:value="AIzaSyAt1HpipYIEY1SoEwiYMlF7TwSNtzDQthY" />
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name">
+            android:label="Nature Calls">
 
         </activity>
         <activity android:name="dukeapps.naturecallsmaster.LoginPage">
