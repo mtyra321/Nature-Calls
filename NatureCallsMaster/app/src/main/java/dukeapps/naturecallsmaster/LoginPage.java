@@ -31,7 +31,7 @@ public class LoginPage extends AppCompatActivity {
             String password = myDb.SearchPass(str);
             if(str2.equals(password)) {
                 Intent intent = new Intent(LoginPage.this, MainActivity.class);
-                intent.putExtra("Username", str);
+                //intent.putExtra("Username", str);
                 startActivity(intent);
             } else {
                 //pop up message
