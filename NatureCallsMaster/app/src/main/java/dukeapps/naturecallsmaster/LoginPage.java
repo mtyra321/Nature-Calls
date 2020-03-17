@@ -60,6 +60,7 @@ public class LoginPage extends AppCompatActivity {
             return true;
         }
     }
+    
 
     public void loginUser(View view) {
         //Validate Login Info
