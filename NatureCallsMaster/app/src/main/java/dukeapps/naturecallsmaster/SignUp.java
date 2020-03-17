@@ -49,10 +49,16 @@ public class SignUp extends Activity {
             String password = pass1.getText().toString();
             String vPassword = pass2.getText().toString();
 
-
-                UserHelperClass helperClass = new UserHelperClass(signName, userName, password, vPassword);
-                reference.child(signName).setValue(helperClass);
-
+            if(!password.equals(vPassword)) {
+                //pop up message
+                Toast passwordMatch = Toast.makeText(SignUp.this, "Please make sure passwords match.", Toast.LENGTH_SHORT);
+                passwordMatch.show();
+            } else {
+                    UserHelperClass helperClass = new UserHelperClass(signName, userName, password, vPassword);
+                    reference.child(signName).setValue(helperClass);
+                    Toast accountCreate = Toast.makeText(SignUp.this, "Successful, go back and log in now!", Toast.LENGTH_SHORT);
+                    accountCreate.show();
+                }
             }
         });
     }
