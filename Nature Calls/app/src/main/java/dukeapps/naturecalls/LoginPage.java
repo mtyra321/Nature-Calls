@@ -28,24 +28,25 @@ import com.google.firebase.auth.FirebaseAuthException;
 
 public class LoginPage extends AppCompatActivity {
 
-    EditText uEmail, uPassword;
-    Button loginBtn, signUpBtn;
-    ProgressBar progressBar;
-    FirebaseAuth fAuth;
+    EditText        uEmail, uPassword;
+    Button          loginBtn, signUpBtn;
+    ProgressBar     progressBar;
+    FirebaseAuth    fAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        uEmail = findViewById(R.id.tfEmail);
-        uPassword = findViewById(R.id.tfPass);
+        uEmail      = findViewById(R.id.tfEmail);
+        uPassword   = findViewById(R.id.tfPass);
 
-        loginBtn = findViewById(R.id.loginBtn);
-        signUpBtn = findViewById(R.id.signUpBtn);
+        loginBtn    = findViewById(R.id.loginBtn);
+        signUpBtn   = findViewById(R.id.signUpBtn);
 
-        fAuth = FirebaseAuth.getInstance();
+        fAuth       = FirebaseAuth.getInstance();
         progressBar = findViewById(R.id.progressBar2);
+
         //map stuff
         mLocationPermissionsGranted = getLocationPermission();
         if (mLocationPermissionsGranted) {
@@ -61,7 +62,7 @@ public class LoginPage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String email = uEmail.getText().toString();
+                String email    = uEmail.getText().toString();
                 String password = uPassword.getText().toString();
 
                 if (TextUtils.isEmpty(email)) {
