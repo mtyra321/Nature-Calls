@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="34f705c6-88db-4388-a9ff-dff574b949d8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/NatureCallsBrian/app/src/main/java/com/dukeapps/naturecalls/ui/map/MapFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/NatureCallsBrian/app/src/main/java/com/dukeapps/naturecalls/ui/map/MapFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NatureCallsBrian/app/src/main/res/layout/fragment_map.xml" beforeDir="false" afterPath="$PROJECT_DIR$/NatureCallsBrian/app/src/main/res/layout/fragment_map.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,7 +16,7 @@
   <component name="ProjectId" id="1YhAscDSzNZW899RjRIA9FDYh23" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Nature-Calls-2020/LoginStuff/dbTest" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Nature Calls" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
