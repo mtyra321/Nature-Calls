@@ -43,10 +43,10 @@ public class Register extends AppCompatActivity {
         fAuth       = FirebaseAuth.getInstance();
         progressBar = findViewById(R.id.progressBar);
 
-        if(fAuth.getCurrentUser() != null) {
-            startActivity(new Intent(getApplicationContext(), MainActivity.class));
-            finish();
-        }
+//        if(fAuth.getCurrentUser() != null) {
+//            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+//            finish();
+//        }
 
         signbtn.setOnClickListener(new View.OnClickListener() {
             @Override

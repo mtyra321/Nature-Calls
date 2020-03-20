@@ -39,11 +39,6 @@ public class LoginPage extends AppCompatActivity {
         fAuth           = FirebaseAuth.getInstance();
         progressBar     = findViewById(R.id.progressBar2);
 
-        if(fAuth.getCurrentUser() != null) {
-            startActivity(new Intent(getApplicationContext(), MainActivity.class));
-            finish();
-        }
-
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -75,6 +70,7 @@ public class LoginPage extends AppCompatActivity {
                             Toast successfulLogin = Toast.makeText(LoginPage.this, "Login Successful.", Toast.LENGTH_SHORT);
                             successfulLogin.show();
                             startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                            progressBar.setVisibility(View.INVISIBLE);
                         } else {
                             FirebaseAuthException e = (FirebaseAuthException)task.getException();
                             Toast errorLogin = Toast.makeText(LoginPage.this, "Failed Registration: "+e.getMessage(), Toast.LENGTH_SHORT);
