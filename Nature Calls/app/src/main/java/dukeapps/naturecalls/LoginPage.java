@@ -91,7 +91,7 @@ public class LoginPage extends AppCompatActivity {
                             progressBar.setVisibility(View.INVISIBLE);
                         } else {
                             FirebaseAuthException e = (FirebaseAuthException) task.getException();
-                            Toast errorLogin = Toast.makeText(LoginPage.this, "Failed Registration: " + e.getMessage(), Toast.LENGTH_SHORT);
+                            Toast errorLogin = Toast.makeText(LoginPage.this, "Failed Login: " + e.getMessage(), Toast.LENGTH_SHORT);
                             errorLogin.show();
                             progressBar.setVisibility(View.INVISIBLE);
                         }
