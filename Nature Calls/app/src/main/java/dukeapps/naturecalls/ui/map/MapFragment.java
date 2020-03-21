@@ -1,5 +1,8 @@
 package dukeapps.naturecalls.ui.map;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +15,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import dukeapps.naturecalls.BathroomActivity;
 import dukeapps.naturecalls.LoginPage;
 import dukeapps.naturecalls.MainActivity;
 import dukeapps.naturecalls.R;
@@ -45,6 +49,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.maps.GeoApiContext;
+import com.google.maps.android.clustering.ClusterManager;
 
 import org.json.JSONObject;
 
@@ -69,11 +74,12 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, GoogleM
     public static final String MAPVIEW_BUNDLE_KEY = "MapViewBundleKey";
     private static final String API_KEY = "AIzaSyAt1HpipYIEY1SoEwiYMlF7TwSNtzDQthY";
     private static final String TAG = "MapFragment";
-
-    private LatLng mOrigin;
-    private LatLng mDestination;
+    private String transitMode = "driving";
     private Polyline mPolyline;
     ArrayList<LatLng> mMarkerPoints;
+    private ClusterManager<ClusterMarker> mClusterManager;
+    private MyClusterManagerRenderer mClusterManagerRenderer;
+    private ArrayList<ClusterMarker> mClusterMarkers = new ArrayList<>();
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -103,52 +109,9 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, GoogleM
         setMap(googleMap);
         this.googleMap.moveCamera(CameraUpdateFactory.zoomTo(18));
         this.googleMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude())));
-        //  this.googleMap.addMarker(new MarkerOptions().position(new LatLng(43.812075, -111.788605)));
         this.googleMap.setOnInfoWindowClickListener(this);
-
-
-        this.googleMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
-            @Override
-            public void onMapClick(LatLng point) {
-                // Already one location
-                if (mMarkerPoints.size() > 0) {
-                    mMarkerPoints.clear();
-                    googleMap.clear();
-                }
-
-                // Adding new item to the ArrayList
-                mMarkerPoints.add(point);
-
-                // Creating MarkerOptions
-                MarkerOptions options = new MarkerOptions();
-
-                // Setting the position of the marker
-                options.position(point);
-
-                /**
-                 * For the start location, the color of marker is GREEN and
-                 * for the end location, the color of marker is RED.
-                 */
-                if (mMarkerPoints.size() == 1) {
-                    options.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
-                } else if (mMarkerPoints.size() == 2) {
-                    options.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
-                }
-
-                // Add new marker to the Google Map Android API V2
-                googleMap.addMarker(options);
-
-                // Checks, whether start and end locations are captured
-                if (mMarkerPoints.size() >= 1) {
-                    // mOrigin = mMarkerPoints.get(0);
-                    mDestination = mMarkerPoints.get(0);
-                    drawRoute();
-                }
-
-            }
-        });
-
-
+        googleMap.setMyLocationEnabled(true);
+        addMapMarkers();
     }
 
     private void initGoogleMap(Bundle savedInstanceState) {
@@ -167,28 +130,132 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, GoogleM
     }
 
 
-    public void onInfoWindowClick(final Marker marker) {
-//        if (marker.getSnippet().equals("This is you")) {
-//            marker.hideInfoWindow();
-//        } else {
-//
-//            final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-//            builder.setMessage(marker.getSnippet())
-//                    .setCancelable(true)
-//                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-//                        public void onClick(@SuppressWarnings("unused") final DialogInterface dialog, @SuppressWarnings("unused") final int id) {
-//                            calculateDirections(marker);
-//                            dialog.dismiss();
-//                        }
-//                    })
-//                    .setNegativeButton("No", new DialogInterface.OnClickListener() {
-//                        public void onClick(final DialogInterface dialog, @SuppressWarnings("unused") final int id) {
-//                            dialog.cancel();
-//                        }
-//                    });
-//            final AlertDialog alert = builder.create();
-//            alert.show();
-//        }
+    private void addMapMarkers() {
+
+        if (googleMap != null) {
+
+            if (mClusterManager == null) {
+                mClusterManager = new ClusterManager<ClusterMarker>(getActivity().getApplicationContext(), googleMap);
+            }
+            if (mClusterManagerRenderer == null) {
+                mClusterManagerRenderer = new MyClusterManagerRenderer(
+                        getActivity(),
+                        googleMap,
+                        mClusterManager
+                );
+                mClusterManager.setRenderer(mClusterManagerRenderer);
+            }
+
+            //    for(UserLocation userLocation: mUserLocations){
+
+            Log.d(TAG, "addMapMarkers: location: ");
+            try {
+                String snippet = "testing";
+
+
+                int avatar = R.drawable.toilet; // set the default avatar
+                try {
+                    //   avatar = Integer.parseInt(userLocation.getUser().getAvatar());
+                } catch (NumberFormatException e) {
+                    Log.d(TAG, "addMapMarkers: no avatar for , setting default.");
+                }
+                ClusterMarker newClusterMarker = new ClusterMarker(
+                        new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude()),
+                        "test",
+                        snippet,
+                        avatar
+                );
+                mClusterManager.addItem(newClusterMarker);
+                mClusterMarkers.add(newClusterMarker);
+                ClusterMarker newClusterMarker1 = new ClusterMarker(
+                        new LatLng(43.81803644277783, -111.78968902677298),
+                        "Destination",
+                        "The testing end1",
+                        avatar
+                );
+                mClusterManager.addItem(newClusterMarker1);
+                mClusterMarkers.add(newClusterMarker1);
+                ClusterMarker newClusterMarker2 = new ClusterMarker(
+                        new LatLng(43.81582601618893, -111.78317125886679),
+                        "2",
+                        "The testing end2",
+                        avatar
+                );
+                mClusterManager.addItem(newClusterMarker2);
+                mClusterMarkers.add(newClusterMarker2);
+                ClusterMarker newClusterMarker3 = new ClusterMarker(
+                        new LatLng(43.81827110075013, -111.7827320471406),
+                        "3",
+                        "The testing end3",
+                        avatar
+                );
+                mClusterManager.addItem(newClusterMarker3);
+                mClusterMarkers.add(newClusterMarker3);
+            } catch (NullPointerException e) {
+                Log.e(TAG, "addMapMarkers: NullPointerException: " + e.getMessage());
+            }
+
+            // }
+            mClusterManager.cluster();
+
+            //    setCameraView();
+        }
+    }
+
+    public void onInfoWindowClick(Marker marker) {
+        if (marker.getSnippet().equals("This is you")) {
+            marker.hideInfoWindow();
+        } else {
+
+            final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+            builder.setMessage("set route to " + marker.getTitle() + "?")
+                    .setCancelable(true)
+                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        public void onClick(@SuppressWarnings("unused") final DialogInterface dialog, @SuppressWarnings("unused") final int id) {
+                            LatLng destination = marker.getPosition();
+                            final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                            builder.setMessage("set route to " + marker.getTitle() + "?")
+                                    .setCancelable(true)
+                                    .setPositiveButton("Driving", new DialogInterface.OnClickListener() {
+                                        public void onClick(@SuppressWarnings("unused") final DialogInterface dialog, @SuppressWarnings("unused") final int id) {
+                                            setTransitModeToDriving();
+                                            Log.i("testing", "testtesttest");
+                                            drawRoute(destination);
+                                            Log.i("testing", "after draw route");
+                                            dialog.dismiss();
+
+                                        }
+                                    })
+
+                                    .setNegativeButton("Walking", new DialogInterface.OnClickListener() {
+                                        public void onClick(final DialogInterface dialog, @SuppressWarnings("unused") final int id) {
+                                            setTransitModeToWalking();
+                                            drawRoute(destination);
+                                        }
+                                    });
+                            final AlertDialog alert = builder.create();
+                            alert.show();
+                            dialog.dismiss();
+                        }
+                    })
+                    .setNeutralButton("Bathroom Info", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                               Intent intent = new Intent(getActivity(), BathroomActivity.class);
+
+                             startActivity(intent);
+                        }
+
+                    })
+                    .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                        public void onClick(final DialogInterface dialog, @SuppressWarnings("unused") final int id) {
+                            dialog.cancel();
+                        }
+                    });
+            final AlertDialog alert = builder.create();
+            alert.show();
+        }
+        Log.i("OnInfo", "The info window was clicked");
     }
 
     public void setMap(GoogleMap googleMap) {
@@ -231,11 +298,28 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, GoogleM
         mMapView.onLowMemory();
     }
 
+    public void setTransitModeToDriving() {
+        Log.i("Transitmodedriving", "transit mode is now driving");
+        transitMode = "driving";
+    }
 
-    private void drawRoute() {
+    public void setTransitModeToWalking() {
+        Log.i("Transitmodewalking", "transit mode is now walking");
+        transitMode = "walking";
+    }
+
+    public String getTransitMode() {
+        return transitMode;
+    }
+
+    public void setTransitMode(String transitMode) {
+        this.transitMode = transitMode;
+    }
+
+    private void drawRoute(LatLng destination) {
 
         // Getting URL to the Google Directions API
-        String url = getDirectionsUrl(new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude()), mDestination);
+        String url = getDirectionsUrl(new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude()), destination);
 
         DownloadTask downloadTask = new DownloadTask();
 
@@ -256,7 +340,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, GoogleM
         String key = "key=" + API_KEY;
 
         // Building the parameters to the web service
-        String parameters = str_origin + "&amp&" + str_dest + "&amp&" + key;
+        String parameters = str_origin + "&" + str_dest +"&mode=" +transitMode+ "&" + key;
 
         // Output format
         String output = "json";

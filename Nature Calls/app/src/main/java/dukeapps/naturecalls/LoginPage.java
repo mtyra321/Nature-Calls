@@ -33,10 +33,6 @@ public class LoginPage extends AppCompatActivity {
     ProgressBar progressBar;
     FirebaseAuth fAuth;
     Intent intent;
-    EditText        uEmail, uPassword;
-    Button          loginBtn, signUpBtn;
-    ProgressBar     progressBar;
-    FirebaseAuth    fAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
