@@ -9,6 +9,14 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -18,19 +26,16 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import com.google.android.gms.location.FusedLocationProviderClient;
-import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
+
+
     public FusedLocationProviderClient fusedLocationClient;
     public static Location currentLocation;
     private static final String FINE_LOCATION = Manifest.permission.ACCESS_FINE_LOCATION;
     private static final String COURSE_LOCATION = Manifest.permission.ACCESS_COARSE_LOCATION;
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1234;
+
     private Boolean mLocationPermissionsGranted = false;
 
     @Override
@@ -39,14 +44,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         setContentView(R.layout.activity_main);
         BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_home, R.id.navigation_map, R.id.navigation_settings)
-                .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-        NavigationUI.setupWithNavController(navView, navController);
-
+        // menu should be considered as top level destinations
         mLocationPermissionsGranted = getLocationPermission();
         if (mLocationPermissionsGranted) {
             getDeviceLocation();
@@ -56,10 +54,15 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 // return;
             }
         }
+        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
+                R.id.navigation_home, R.id.navigation_map, R.id.navigation_settings)
+                .build();
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+        NavigationUI.setupWithNavController(navView, navController);
 
 
     }
-
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -77,21 +80,18 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
             if (mLocationPermissionsGranted) {
 
                 final Task location = fusedLocationClient.getLastLocation();
-                location.addOnCompleteListener(new OnCompleteListener() {
-                    @Override
-                    public void onComplete(@NonNull Task task) {
-                        if (task.isSuccessful()) {
-                            Log.d("", "onComplete: found location!");
-                            currentLocation = (Location) task.getResult();
-                            Log.i("current location", "currentLocation: " + currentLocation.getLatitude() + " " + currentLocation.getLongitude());
-//                            mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(43.814759, -111.784555)));
-//                            googleMap.moveCamera(CameraUpdateFactory.zoomTo(18));
-                            //     moveToCurrentLocation();
-                            //        googleMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude())));
-                        } else {
-                            Log.d("", "onComplete: current location is null");
-                            //      Toast.makeText(MapActivity.this, "unable to get current location", Toast.LENGTH_SHORT).show();
-                        }
+
+                location.addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        Log.d("something", "onComplete: found location!");
+                        currentLocation = (Location) task.getResult();
+//                        Log.d("taskGetResult", task.getResult().toString());
+                        // assert currentLocation != null;
+                        Log.i("current location", "currentLocation: " + currentLocation.getLatitude() + " " + currentLocation.getLongitude());
+
+                    } else {
+                        Log.d("", "onComplete: current location is null");
+                        //      Toast.makeText(MapActivity.this, "unable to get current location", Toast.LENGTH_SHORT).show();
                     }
                 });
             }
@@ -148,9 +148,9 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         }
     }
 
-    public void logout(View view) {
-        FirebaseAuth.getInstance().signOut();
-        startActivity(new Intent(getApplicationContext(), LoginPage.class));
-        finish();
-    }
+//    public void logout(View view) {
+//        FirebaseAuth.getInstance().signOut();
+//        startActivity(new Intent(getApplicationContext(), LoginPage.class));
+//        finish();
+//    }
 }

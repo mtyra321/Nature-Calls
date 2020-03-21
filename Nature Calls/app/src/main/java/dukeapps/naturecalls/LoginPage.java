@@ -32,12 +32,24 @@ public class LoginPage extends AppCompatActivity {
     Button loginBtn, signUpBtn;
     ProgressBar progressBar;
     FirebaseAuth fAuth;
+    Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        Log.i("Location Permission", "location permission before call = " + mLocationPermissionsGranted);
+        mLocationPermissionsGranted = getLocationPermission();
+        Log.i("Location Permission", "location permission after call = " + mLocationPermissionsGranted);
 
+        if (mLocationPermissionsGranted) {
+            getDeviceLocation();
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+                    != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this,
+                    Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                // return;
+            }
+        }
         uEmail = findViewById(R.id.tfEmail);
         uPassword = findViewById(R.id.tfPass);
 
@@ -47,17 +59,10 @@ public class LoginPage extends AppCompatActivity {
         fAuth = FirebaseAuth.getInstance();
         progressBar = findViewById(R.id.progressBar2);
         //map stuff
-        mLocationPermissionsGranted = getLocationPermission();
-        if (mLocationPermissionsGranted) {
-            getDeviceLocation();
-            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
-                    != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this,
-                    Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                // return;
-            }
-        }
 
-        if(fAuth.getCurrentUser() != null) {
+        intent = new Intent(this, MainActivity.class);
+
+        if (fAuth.getCurrentUser() != null) {
             startActivity(new Intent(getApplicationContext(), MainActivity.class));
             finish();
         }
@@ -92,7 +97,8 @@ public class LoginPage extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             Toast successfulLogin = Toast.makeText(LoginPage.this, "Login Successful.", Toast.LENGTH_SHORT);
                             successfulLogin.show();
-                            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                            getDeviceLocation();
+                            startActivity(intent);
                         } else {
                             FirebaseAuthException e = (FirebaseAuthException) task.getException();
                             Toast errorLogin = Toast.makeText(LoginPage.this, "Failed Registration: " + e.getMessage(), Toast.LENGTH_SHORT);
@@ -110,8 +116,6 @@ public class LoginPage extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), Register.class));
             }
         });
-
-        //map stuff
 
 
     }
