@@ -33,6 +33,10 @@ public class LoginPage extends AppCompatActivity {
     ProgressBar progressBar;
     FirebaseAuth fAuth;
     Intent intent;
+    EditText        uEmail, uPassword;
+    Button          loginBtn, signUpBtn;
+    ProgressBar     progressBar;
+    FirebaseAuth    fAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,12 +56,15 @@ public class LoginPage extends AppCompatActivity {
         }
         uEmail = findViewById(R.id.tfEmail);
         uPassword = findViewById(R.id.tfPass);
+        uEmail      = findViewById(R.id.tfEmail);
+        uPassword   = findViewById(R.id.tfPass);
 
-        loginBtn = findViewById(R.id.loginBtn);
-        signUpBtn = findViewById(R.id.signUpBtn);
+        loginBtn    = findViewById(R.id.loginBtn);
+        signUpBtn   = findViewById(R.id.signUpBtn);
 
-        fAuth = FirebaseAuth.getInstance();
+        fAuth       = FirebaseAuth.getInstance();
         progressBar = findViewById(R.id.progressBar2);
+
         //map stuff
 
         intent = new Intent(this, MainActivity.class);
@@ -71,7 +78,7 @@ public class LoginPage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String email = uEmail.getText().toString();
+                String email    = uEmail.getText().toString();
                 String password = uPassword.getText().toString();
 
                 if (TextUtils.isEmpty(email)) {
@@ -99,9 +106,11 @@ public class LoginPage extends AppCompatActivity {
                             successfulLogin.show();
                             getDeviceLocation();
                             startActivity(intent);
+                            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                            progressBar.setVisibility(View.INVISIBLE);
                         } else {
                             FirebaseAuthException e = (FirebaseAuthException) task.getException();
-                            Toast errorLogin = Toast.makeText(LoginPage.this, "Failed Registration: " + e.getMessage(), Toast.LENGTH_SHORT);
+                            Toast errorLogin = Toast.makeText(LoginPage.this, "Failed Login: " + e.getMessage(), Toast.LENGTH_SHORT);
                             errorLogin.show();
                             progressBar.setVisibility(View.INVISIBLE);
                         }
