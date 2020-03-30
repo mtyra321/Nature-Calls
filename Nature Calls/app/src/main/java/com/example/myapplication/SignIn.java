@@ -38,12 +38,32 @@ import java.util.List;
 public class SignIn extends AppCompatActivity {
 
    // private static int SPLASH_TIME_OUT = 4000;
+//    RecyclerView mRecyclerView;
+//    FirebaseDatabase mFirebaseDatabase;
+//    DatabaseReference mRef;
     BottomNavigationView bottomNavigationView;
     private static final int MY_REQUEST_CODE = 7177;
     List<AuthUI.IdpConfig> providers;
     Button btn_sign_out;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // Actionbar
+//        ActionBar actionBar = getSupportActionBar();
+        //set title
+//        actionBar.setTitle("Post List");
+
+        //RecyclerView
+//        mRecyclerView = findViewById(R.id.recycle);
+////        mRecyclerView.setHasFixedSize(true);
+//
+//        //LinearLayout
+////        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+//
+//        //send Query to firebase
+//
+//        mFirebaseDatabase = FirebaseDatabase.getInstance();
+//        mRef = mFirebaseDatabase.getReference("Data");
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Log.i("Location Permission", "location permission before call = " + mLocationPermissionsGranted);
@@ -124,7 +144,18 @@ public class SignIn extends AppCompatActivity {
 
     }
 
-
+//    @Override
+//    protected void onStart() {
+//        super.onStart();
+//        FirebaseRecyclerAdapter<model, ViewHolder> firebaseRecyclerAdapter =
+//                new FirebaseRecyclerAdapter<model, ViewHolder>(model.class, R.layout.row, ViewHolder.class,mRef) {
+//                    @Override
+//                    protected void populateViewHolder(ViewHolder viewHolder, model model, int i) {
+//                        viewHolder.setDetails(getApplicationContext(), model.getTitle(), model.getDescription(), model.getImg());
+//                    }
+//                };
+//        mRecyclerView.setAdapter(firebaseRecyclerAdapter);
+//    }
 
     private void showSignInOptions() {
         startActivityForResult(
@@ -247,5 +278,7 @@ public class SignIn extends AppCompatActivity {
             }
         }
     }
+
+
 
 }
