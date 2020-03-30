@@ -1,13 +1,16 @@
 package com.example.myapplication.fragment;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.myapplication.R;
@@ -24,6 +27,7 @@ public class HomeFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -63,17 +67,106 @@ public class HomeFragment extends Fragment {
     }
 //    TextView title;
 //    Typeface font;
-
+    Button bl;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View viewRoot = inflater.inflate(R.layout.home, container, false);
+        Button btn = (Button) viewRoot.findViewById(R.id.stc);
+        Button btn1 = (Button) viewRoot.findViewById(R.id.austin);
+        Button btn2 = (Button) viewRoot.findViewById(R.id.hart);
+        Button btn3 = (Button) viewRoot.findViewById(R.id.benson);
+        Button btn4 = (Button) viewRoot.findViewById(R.id.mc);
+        Button btn5 = (Button) viewRoot.findViewById(R.id.library);
+        Button btn6 = (Button) viewRoot.findViewById(R.id.smith);
+        Button btn7 = (Button) viewRoot.findViewById(R.id.rick);
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(getActivity(), stcN.class);
+                startActivity(in);
+
+            }
+        });
+
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(getActivity(), Austin.class);
+                startActivity(in);
+
+            }
+        });
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(getActivity(), Hart.class);
+                startActivity(in);
+
+            }
+        });
+        btn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(getActivity(), Benson.class);
+                startActivity(in);
+
+            }
+        });
+        btn4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(getActivity(), MC.class);
+                startActivity(in);
+
+            }
+        });
+        btn5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(getActivity(), Library.class);
+                startActivity(in);
+
+            }
+        });
+        btn6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(getActivity(), Smith.class);
+                startActivity(in);
+
+            }
+        });
+        btn7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(getActivity(), Rick.class);
+                startActivity(in);
+
+            }
+        });
+
+
 //
 //        title = viewRoot.findViewById(R.id.textGrid);
 //        font = Typeface.createFromAsset(getActivity().getAssets(), "fonts/PermanentMarker-Regular.ttf");
 //        title.setTypeface(font);
-
+//        bl = viewRoot.findViewById(R.id.stc);
+//        bl.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                stc Stc = new stc();
+//                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+//                transaction.replace(R.id.main,Stc);
+//                transaction.commit();
+//
+//
+//            }
+//        });
         return viewRoot;
-    }
+ }
 }
+
