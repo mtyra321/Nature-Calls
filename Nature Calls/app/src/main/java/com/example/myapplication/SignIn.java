@@ -37,11 +37,12 @@ import java.util.List;
 
 public class SignIn extends AppCompatActivity {
 
-   // private static int SPLASH_TIME_OUT = 4000;
+    // private static int SPLASH_TIME_OUT = 4000;
     BottomNavigationView bottomNavigationView;
     private static final int MY_REQUEST_CODE = 7177;
     List<AuthUI.IdpConfig> providers;
     Button btn_sign_out;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +52,8 @@ public class SignIn extends AppCompatActivity {
         Log.i("Location Permission", "location permission after call = " + mLocationPermissionsGranted);
 
         if (mLocationPermissionsGranted) {
+            Log.i("Getting location", "about to call get Device location");
+
             getDeviceLocation();
             if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
                     != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this,
@@ -60,8 +63,7 @@ public class SignIn extends AppCompatActivity {
         }
 
         bottomNavigationView = findViewById(R.id.bottomNav);
-        if(savedInstanceState == null)
-        {
+        if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new HomeFragment()).commit();
         }
 
@@ -71,8 +73,7 @@ public class SignIn extends AppCompatActivity {
                 Fragment fragment = null;
                 getDeviceLocation();
 
-                switch (menuItem.getItemId())
-                {
+                switch (menuItem.getItemId()) {
                     case R.id.home:
                         fragment = new HomeFragment();
                         break;
@@ -83,13 +84,13 @@ public class SignIn extends AppCompatActivity {
                         fragment = new Setting();
                         break;
                 }
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,fragment).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, fragment).commit();
                 return true;
             }
         });
 
 
-        btn_sign_out = (Button)findViewById(R.id.btn_sign_out);
+        btn_sign_out = (Button) findViewById(R.id.btn_sign_out);
         btn_sign_out.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -106,7 +107,7 @@ public class SignIn extends AppCompatActivity {
                         }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(SignIn.this,""+e.getMessage(),Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SignIn.this, "" + e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
 
@@ -125,15 +126,14 @@ public class SignIn extends AppCompatActivity {
     }
 
 
-
     private void showSignInOptions() {
         startActivityForResult(
                 AuthUI.getInstance().createSignInIntentBuilder()
-                .setAvailableProviders(providers)
-                .setTheme(R.style.MyTheme)
+                        .setAvailableProviders(providers)
+                        .setTheme(R.style.MyTheme)
                         .setLogo(R.drawable.naturecalls2)
-                .build()
-                ,MY_REQUEST_CODE
+                        .build()
+                , MY_REQUEST_CODE
 
         );
     }
@@ -141,19 +141,15 @@ public class SignIn extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == MY_REQUEST_CODE)
-        {
+        if (requestCode == MY_REQUEST_CODE) {
             IdpResponse response = IdpResponse.fromResultIntent(data);
-            if(resultCode == RESULT_OK)
-            {
+            if (resultCode == RESULT_OK) {
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                Toast.makeText(this,""+user.getEmail(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "" + user.getEmail(), Toast.LENGTH_SHORT).show();
                 btn_sign_out.setEnabled(true);
 
-            }
-            else
-            {
-                Toast.makeText(this,""+response.getError().getMessage(),Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "" + response.getError().getMessage(), Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -183,7 +179,7 @@ public class SignIn extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             Log.d("", "onComplete: found location!");
                             currentLocation = (Location) task.getResult();
-                            Log.i("current location", "currentLocation: " + currentLocation.getLatitude() + " " + currentLocation.getLongitude());
+                            //           Log.i("current location", "currentLocation: " + currentLocation.getLatitude() + " " + currentLocation.getLongitude());
 //                            mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(43.814759, -111.784555)));
 //                            googleMap.moveCamera(CameraUpdateFactory.zoomTo(18));
                             //     moveToCurrentLocation();
