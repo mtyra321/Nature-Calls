@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -28,18 +28,18 @@ public class Smith extends AppCompatActivity {
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference mRootRef = database.getReference();
-private Smith smith;
+    private Smith smith;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_smith);
-        listView = findViewById(R.id.List);
+        // listView = findViewById(R.id.List);
     }
 
-    protected void onStart() {
-        super.onStart();
+    public void populateBathroomList(String name) {
         bathrooms = new ArrayList<>();
-        mRootRef.child("Bathrooms").child("Bathrooms").child("Smith").addValueEventListener(new ValueEventListener() {
+        mRootRef.child("Bathrooms").child("Bathrooms").child(name).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 Map<String, Object> map = (Map<String, Object>) dataSnapshot.getValue();
@@ -48,7 +48,7 @@ private Smith smith;
                 for (Object j : map.keySet()) {
                     Log.i("mapKeySet", j.toString());
                     Bathroom b = new Bathroom();
-                    b.setBuilding("Smith");
+                    b.setBuilding(name);
                     b.setRoomNumber(j.toString());
                     Log.i("mapValueSet", map.get(j).toString());
                     Map<String, Object> d = (Map) map.get(j);
@@ -66,12 +66,31 @@ private Smith smith;
                     Log.i("bathroom", b.toString());
                     bathrooms.add(b);
                 }
-               ArrayAdapter<Bathroom> adapter = new ArrayAdapter<>(getParent(), android.R.layout.simple_list_item_1, bathrooms);
-                listView.setAdapter(adapter);
-                adapter.notifyDataSetChanged();
-                TextView tester = findViewById(R.id.Tester);
-                Log.i("bathroomsstring", bathrooms.toString());
-                tester.setText(bathrooms.toString());
+                //  ArrayAdapter<Bathroom> adapter = new ArrayAdapter<>(getParent(), android.R.layout.simple_list_item_1, bathrooms);
+                //    listView.setAdapter(adapter);
+                //      adapter.notifyDataSetChanged();
+                TextView one = findViewById(R.id.One);
+                TextView two = findViewById(R.id.Two);
+                TextView three = findViewById(R.id.Three);
+                TextView four = findViewById(R.id.Four);
+                Button butt1 = findViewById(R.id.butt1);
+                Button butt2 = findViewById(R.id.butt2);
+                Button butt3 = findViewById(R.id.butt3);
+                Button butt4 = findViewById(R.id.butt4);
+
+                one.setText(bathrooms.get(0).toString());
+
+                two.setText(bathrooms.get(1).toString());
+                if (bathrooms.size() > 1) {
+                    three.setVisibility(View.GONE);
+                    four.setVisibility(View.GONE);
+                    butt3.setVisibility(View.GONE);
+                    butt4.setVisibility(View.GONE);
+                    return;
+                }
+                three.setText(bathrooms.get(2).toString());
+
+                four.setText(bathrooms.get(3).toString());
                 //   bathrooms = map;
 
             }
@@ -81,16 +100,17 @@ private Smith smith;
                 Log.i("setting textview", "failed");
             }
         });
-        //  adapter=new ArrayAdapter<String>(this,
-        //     android.R.layout.simple_list_item_1,
-        //   );
-        //  setListAdapter(adapter);
+    }
+
+    protected void onStart() {
+        super.onStart();
+        populateBathroomList("Smith");
 
 
     }
 
     public void addItems(View v) {
         //     ListView.add("Clicked : "+clickCounter++);
-    //    adapter.notifyDataSetChanged();
+        //    adapter.notifyDataSetChanged();
     }
 }

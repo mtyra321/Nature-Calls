@@ -8,24 +8,91 @@
 
     >
 
-    <ListView
-        android:id="@+id/List"
-        android:layout_width="94dp"
-        android:layout_height="94dp"
-        android:layout_marginStart="68dp"
-        android:layout_marginLeft="68dp"
-        android:layout_marginTop="64dp"
+    <TextView
+        android:id="@+id/Four"
+        android:layout_width="163dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="296dp"
+        android:text="TextView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/Tester"
-        android:layout_width="196dp"
-        android:layout_height="224dp"
-        android:layout_marginStart="157dp"
-        android:layout_marginLeft="157dp"
-        android:layout_marginTop="65dp"
+        android:id="@+id/Three"
+        android:layout_width="163dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="212dp"
         android:text="TextView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/List" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/butt2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="76dp"
+        android:layout_marginLeft="76dp"
+        android:layout_marginTop="36dp"
+        android:text="Go"
+        app:layout_constraintStart_toEndOf="@+id/Two"
+        app:layout_constraintTop_toBottomOf="@+id/butt1" />
+
+    <Button
+        android:id="@+id/butt3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="76dp"
+        android:layout_marginLeft="76dp"
+        android:layout_marginTop="36dp"
+        android:text="Go"
+        app:layout_constraintStart_toEndOf="@+id/Three"
+        app:layout_constraintTop_toBottomOf="@+id/butt2" />
+
+    <Button
+        android:id="@+id/butt4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="76dp"
+        android:layout_marginLeft="76dp"
+        android:layout_marginTop="36dp"
+        android:text="Go"
+        app:layout_constraintStart_toEndOf="@+id/Four"
+        app:layout_constraintTop_toBottomOf="@+id/butt3" />
+
+    <TextView
+        android:id="@+id/One"
+        android:layout_width="163dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="60dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/Two"
+        android:layout_width="163dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="128dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/butt1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="76dp"
+        android:layout_marginLeft="76dp"
+        android:layout_marginTop="36dp"
+        android:text="Go"
+        app:layout_constraintStart_toEndOf="@+id/One"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
