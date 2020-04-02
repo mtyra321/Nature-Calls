@@ -1,13 +1,16 @@
 package com.example.myapplication;
 
-import java.util.List;
+import android.os.Parcelable;
+
+import java.io.Serializable;
+import java.util.ArrayList;
 
 //will store the data on the bathrooms
 //testing testing
-public class Bathroom {
+public class Bathroom implements Serializable {
     private String description;
-    private List<String> tags;
-    private List<Ratings> ratings;
+    private ArrayList<String> tags;
+    private ArrayList<Ratings> ratings;
     private String roomNumber;
     private String photo;
     private String building;
@@ -24,7 +27,7 @@ public class Bathroom {
     public Bathroom() {
     }
 
-    public Bathroom(String description, List<String> tags, List<Ratings> ratings, String roomNumber, String building) {
+    public Bathroom(String description, ArrayList<String> tags, ArrayList<Ratings> ratings, String roomNumber, String building) {
         this.description = description;
         this.tags = tags;
         this.ratings = ratings;
@@ -44,11 +47,11 @@ public class Bathroom {
         return description;
     }
 
-    public List<String> getTags() {
+    public ArrayList<String> getTags() {
         return tags;
     }
 
-    public List<Ratings> getRatings() {
+    public ArrayList<Ratings> getRatings() {
         return ratings;
     }
 
@@ -65,11 +68,11 @@ public class Bathroom {
         this.description = description;
     }
 
-    public void setTags(List<String> tags) {
+    public void setTags(ArrayList<String> tags) {
         this.tags = tags;
     }
 
-    public void setRatings(List<Ratings> ratings) {
+    public void setRatings(ArrayList<Ratings> ratings) {
         this.ratings = ratings;
     }
 

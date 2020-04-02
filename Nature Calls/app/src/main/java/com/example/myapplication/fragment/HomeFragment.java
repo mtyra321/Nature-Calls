@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.myapplication.R;
-import com.example.myapplication.Smith;
+import com.example.myapplication.BathroomList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -90,7 +90,9 @@ public class HomeFragment extends Fragment {
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in = new Intent(getActivity(), Austin.class);
+                Intent in = new Intent(getActivity(), BathroomList.class);
+                in.putExtra("Building", "Austin");
+
                 startActivity(in);
 
             }
@@ -98,7 +100,9 @@ public class HomeFragment extends Fragment {
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in = new Intent(getActivity(), Hart.class);
+                Intent in = new Intent(getActivity(), BathroomList.class);
+                in.putExtra("Building", "Hart");
+
                 startActivity(in);
 
             }
@@ -106,7 +110,9 @@ public class HomeFragment extends Fragment {
         btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in = new Intent(getActivity(), Benson.class);
+                Intent in = new Intent(getActivity(), BathroomList.class);
+                in.putExtra("Building", "Benson");
+
                 startActivity(in);
 
             }
@@ -114,7 +120,9 @@ public class HomeFragment extends Fragment {
         btn4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in = new Intent(getActivity(), MC.class);
+                Intent in = new Intent(getActivity(), BathroomList.class);
+                in.putExtra("Building", "MC");
+
                 startActivity(in);
 
             }
@@ -122,7 +130,9 @@ public class HomeFragment extends Fragment {
         btn5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in = new Intent(getActivity(), Library.class);
+                Intent in = new Intent(getActivity(), BathroomList.class);
+                in.putExtra("Building", "Library");
+
                 startActivity(in);
 
             }
@@ -130,7 +140,7 @@ public class HomeFragment extends Fragment {
         btn6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in = new Intent(getActivity(), Smith.class);
+                Intent in = new Intent(getActivity(), BathroomList.class);
                 startActivity(in);
 
             }
@@ -138,7 +148,8 @@ public class HomeFragment extends Fragment {
         btn7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in = new Intent(getActivity(), Rick.class);
+                Intent in = new Intent(getActivity(), BathroomList.class);
+                in.putExtra("Building", "Ricks");
                 startActivity(in);
 
             }

@@ -7,20 +7,51 @@
     tools:context=".fragment.BathroomInfo">
 
     <ImageView
-        android:id="@+id/imageView12"
+        android:id="@+id/poop4"
         android:layout_width="25dp"
         android:layout_height="25dp"
-        android:layout_marginTop="29dp"
-        app:layout_constraintStart_toEndOf="@+id/imageView11"
+        android:layout_marginTop="84dp"
+        app:layout_constraintStart_toEndOf="@+id/poop3"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_cute" />
 
     <ImageView
-        android:id="@+id/imageView11"
+        android:id="@+id/poop2"
         android:layout_width="25dp"
         android:layout_height="25dp"
-        android:layout_marginTop="29dp"
-        app:layout_constraintStart_toEndOf="@+id/imageView10"
+        android:layout_marginTop="84dp"
+        app:layout_constraintStart_toEndOf="@+id/poop1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_cute" />
+
+    <ImageView
+        android:id="@+id/poop1"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="176dp"
+        android:layout_marginLeft="176dp"
+        android:layout_marginTop="84dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_cute" />
+
+    <ImageView
+        android:id="@+id/poop5"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="84dp"
+        app:layout_constraintStart_toEndOf="@+id/poop4"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_cute" />
+
+    <ImageView
+        android:id="@+id/poop3"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="84dp"
+        app:layout_constraintStart_toEndOf="@+id/poop2"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_cute" />
 
@@ -36,15 +67,16 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView8"
+        android:id="@+id/ToiletPaper"
         android:layout_width="384dp"
         android:layout_height="175dp"
         android:layout_marginStart="13dp"
         android:layout_marginLeft="13dp"
-        android:layout_marginTop="11dp"
+        android:layout_marginTop="176dp"
         android:layout_marginEnd="14dp"
         android:layout_marginRight="14dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bRoomName"
         app:srcCompat="@drawable/quick_view_toilet" />
@@ -53,10 +85,10 @@
         android:id="@+id/bRoomName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:text="TextView"
+        android:layout_marginStart="132dp"
+        android:layout_marginLeft="132dp"
+        android:layout_marginTop="28dp"
+        android:text="building room#"
         android:textColor="#000000"
         android:textSize="36sp"
         android:textStyle="bold"
@@ -67,44 +99,37 @@
         android:id="@+id/description"
         android:layout_width="239dp"
         android:layout_height="103dp"
-        android:layout_marginStart="140dp"
-        android:layout_marginLeft="140dp"
+        android:layout_marginStart="144dp"
+        android:layout_marginLeft="144dp"
+        android:layout_marginTop="292dp"
         android:text="TextView"
         android:textColor="#000000"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="112dp" />
-
-    <ImageView
-        android:id="@+id/imageView9"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_marginStart="52dp"
-        android:layout_marginLeft="52dp"
-        android:layout_marginTop="29dp"
-        app:layout_constraintStart_toEndOf="@+id/bRoomName"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_cute" />
-
-    <ImageView
-        android:id="@+id/imageView10"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="29dp"
-        app:layout_constraintStart_toEndOf="@+id/imageView9"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_cute" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="406dp"
         android:layout_height="356dp"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="252dp">
+        tools:layout_editor_absoluteX="2dp"
+        tools:layout_editor_absoluteY="418dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical" />
     </ScrollView>
+
+    <TextView
+        android:id="@+id/Tags"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="232dp"
+        android:layout_marginLeft="232dp"
+        android:layout_marginTop="156dp"
+        android:text="tags"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

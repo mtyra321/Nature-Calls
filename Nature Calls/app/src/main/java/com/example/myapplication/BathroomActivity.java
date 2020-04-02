@@ -29,13 +29,12 @@ public class BathroomActivity extends AppCompatActivity {
     private String photo;
     private String building;
     private long rating;
-    TextView test;
 
     //DatabaseReference childRef = conditionRef.child("tester");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bathroom);
+        setContentView(R.layout.activity_bathroom_info);
         Intent intent = getIntent();
         description = intent.getStringExtra("Description");
         roomNumber = intent.getStringExtra("Room Number");
@@ -43,15 +42,50 @@ public class BathroomActivity extends AppCompatActivity {
         rating = intent.getLongExtra("Rating", 0);
         tags = intent.getStringArrayListExtra("Tags");
         //ratings = intent.getParcelableArrayListExtra("Ratings");
-        test = findViewById(R.id.Test);
-        test.setText(roomNumber);
+        TextView name = findViewById(R.id.bRoomName);
+        name.setText(building + " " + roomNumber);
+        TextView tagsView = findViewById(R.id.tags);
+//        tagsView.setText(tags.toString());
+        TextView descView = findViewById(R.id.description);
+        descView.setText(description);
+        findViewById(R.id.poop1).setVisibility(View.GONE);
+        findViewById(R.id.poop2).setVisibility(View.GONE);
+        findViewById(R.id.poop3).setVisibility(View.GONE);
+        findViewById(R.id.poop4).setVisibility(View.GONE);
+        findViewById(R.id.poop5).setVisibility(View.GONE);
+
+        switch ((int) rating) {
+            case 0:
+                break;
+            case 1:
+                findViewById(R.id.poop1).setVisibility(View.VISIBLE);
+                break;
+            case 2:
+                findViewById(R.id.poop1).setVisibility(View.VISIBLE);
+                findViewById(R.id.poop2).setVisibility(View.VISIBLE);
+                break;
+            case 3:
+                findViewById(R.id.poop1).setVisibility(View.VISIBLE);
+                findViewById(R.id.poop2).setVisibility(View.VISIBLE);
+                findViewById(R.id.poop3).setVisibility(View.VISIBLE);
+                break;
+            case 4:
+                findViewById(R.id.poop1).setVisibility(View.VISIBLE);
+                findViewById(R.id.poop2).setVisibility(View.VISIBLE);
+                findViewById(R.id.poop3).setVisibility(View.VISIBLE);
+                findViewById(R.id.poop4).setVisibility(View.VISIBLE);
+                break;
+            case 5:
+                findViewById(R.id.poop1).setVisibility(View.VISIBLE);
+                findViewById(R.id.poop2).setVisibility(View.VISIBLE);
+                findViewById(R.id.poop3).setVisibility(View.VISIBLE);
+                findViewById(R.id.poop4).setVisibility(View.VISIBLE);
+                findViewById(R.id.poop5).setVisibility(View.VISIBLE);
+                break;
+        }
 
     }
 
-    public void Click(View view) {
-
-
-    }
 
     protected void onStart() {
         super.onStart();

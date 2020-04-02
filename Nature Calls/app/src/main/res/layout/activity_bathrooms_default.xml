@@ -10,8 +10,8 @@
         android:id="@+id/imageView4"
         android:layout_width="322dp"
         android:layout_height="825dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginRight="48dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginRight="44dp"
         android:layout_marginBottom="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -29,7 +29,7 @@
         app:srcCompat="@drawable/austinmans" />
 
     <TextView
-        android:id="@+id/title"
+        android:id="@+id/name"
         android:layout_width="158dp"
         android:layout_height="48dp"
         android:layout_marginStart="24dp"
@@ -42,7 +42,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/description"
         android:layout_width="202dp"
         android:layout_height="89dp"
         android:text="Single stall with one urinal and a tower sink with lockers. Good for Austin workers and adventures. "
@@ -52,7 +52,7 @@
         tools:layout_editor_absoluteY="271dp" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/reviews"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="154dp"
@@ -67,31 +67,33 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="26dp"
-        android:layout_height="25dp"
-        app:srcCompat="@drawable/ic_cute"
-        tools:layout_editor_absoluteX="193dp"
-        tools:layout_editor_absoluteY="92dp" />
+        android:id="@+id/poop1"
+        android:layout_width="25dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        app:layout_constraintStart_toEndOf="@+id/imageView3"
+        app:layout_constraintTop_toBottomOf="@+id/name"
+        app:srcCompat="@drawable/ic_cute" />
 
     <ImageView
-        android:id="@+id/imageView6"
+        android:id="@+id/poop2"
         android:layout_width="26dp"
         android:layout_height="25dp"
-        app:srcCompat="@drawable/ic_cute"
-        tools:layout_editor_absoluteX="219dp"
-        tools:layout_editor_absoluteY="92dp" />
+        app:layout_constraintStart_toEndOf="@+id/poop1"
+        app:layout_constraintTop_toBottomOf="@+id/name"
+        app:srcCompat="@drawable/ic_cute" />
 
     <ImageView
-        android:id="@+id/imageView7"
+        android:id="@+id/poop3"
         android:layout_width="26dp"
         android:layout_height="25dp"
-        app:srcCompat="@drawable/ic_cute"
-        tools:layout_editor_absoluteX="245dp"
-        tools:layout_editor_absoluteY="92dp" />
+        app:layout_constraintStart_toEndOf="@+id/poop2"
+        app:layout_constraintTop_toBottomOf="@+id/name"
+        app:srcCompat="@drawable/ic_cute" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/tags"
         android:layout_width="168dp"
         android:layout_height="38dp"
         android:text="Tags: adventure, men’s, storage"

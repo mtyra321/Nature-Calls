@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -19,10 +18,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
-public class Smith extends AppCompatActivity {
+public class BathroomList extends AppCompatActivity {
 
 
     ArrayList<Bathroom> bathrooms;
@@ -30,16 +28,18 @@ public class Smith extends AppCompatActivity {
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference mRootRef = database.getReference();
-    private Smith smith;
+    private BathroomList smith;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_smith);
+        setContentView(R.layout.activity_bathroom_list);
         // listView = findViewById(R.id.List);
     }
 
     public void populateBathroomList(String name) {
+        Intent intent = new Intent(this, BathroomActivity.class);
         bathrooms = new ArrayList<>();
         mRootRef.child("Bathrooms").child("Bathrooms").child(name).addValueEventListener(new ValueEventListener() {
             @Override
@@ -57,7 +57,7 @@ public class Smith extends AppCompatActivity {
                     Log.i("d=", d.toString());
                     b.setDescription(d.get("Description").toString());
                     b.setRating((long) d.get("OverallPoop"));
-                    b.setRatings((List) d.get("Ratings"));
+                    b.setRatings((ArrayList) d.get("Ratings"));
                     Map<String, Object> tagsmap = (Map) d.get("Tags");
                     ArrayList<String> tags = new ArrayList<>();
                     for (Object s : tagsmap.keySet()) {
@@ -85,13 +85,12 @@ public class Smith extends AppCompatActivity {
                 butt1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent(getParent(), BathroomActivity.class);
                         intent.putExtra("Building", bathrooms.get(0).getBuilding());
                         intent.putExtra("Description", bathrooms.get(0).getDescription());
                         intent.putExtra("Rating", bathrooms.get(0).getRating());
                         intent.putExtra("Room Number", bathrooms.get(0).getRoomNumber());
-                        intent.putExtra("Ratings", (Parcelable) bathrooms.get(0).getRatings());
-                        intent.putExtra("Building", (Parcelable) bathrooms.get(0).getTags());
+                        intent.putExtra("Ratings",  bathrooms.get(0).getRatings());
+                        intent.putStringArrayListExtra("Tags", bathrooms.get(0).getTags());
                         startActivity(intent);
                     }
                 });
@@ -105,6 +104,18 @@ public class Smith extends AppCompatActivity {
                     return;
                 }
                 two.setText(bathrooms.get(1).getRoomNumber());
+                butt2.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        intent.putExtra("Building", bathrooms.get(1).getBuilding());
+                        intent.putExtra("Description", bathrooms.get(1).getDescription());
+                        intent.putExtra("Rating", bathrooms.get(1).getRating());
+                        intent.putExtra("Room Number", bathrooms.get(1).getRoomNumber());
+                        intent.putExtra("Ratings", bathrooms.get(1).getRatings());
+                        intent.putStringArrayListExtra("Tags", bathrooms.get(1).getTags());
+                        startActivity(intent);
+                    }
+                });
                 if (bathrooms.size() == 2) {
                     three.setVisibility(View.GONE);
                     four.setVisibility(View.GONE);
@@ -113,12 +124,36 @@ public class Smith extends AppCompatActivity {
                     return;
                 }
                 three.setText(bathrooms.get(2).getRoomNumber());
+                butt3.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        intent.putExtra("Building", bathrooms.get(2).getBuilding());
+                        intent.putExtra("Description", bathrooms.get(2).getDescription());
+                        intent.putExtra("Rating", bathrooms.get(2).getRating());
+                        intent.putExtra("Room Number", bathrooms.get(2).getRoomNumber());
+                        intent.putExtra("Ratings",  bathrooms.get(2).getRatings());
+                        intent.putStringArrayListExtra("Tags", bathrooms.get(2).getTags());
+                        startActivity(intent);
+                    }
+                });
                 if (bathrooms.size() == 3) {
                     four.setVisibility(View.GONE);
                     butt4.setVisibility(View.GONE);
                     return;
                 }
                 four.setText(bathrooms.get(3).getRoomNumber());
+                butt4.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        intent.putExtra("Building", bathrooms.get(3).getBuilding());
+                        intent.putExtra("Description", bathrooms.get(3).getDescription());
+                        intent.putExtra("Rating", bathrooms.get(3).getRating());
+                        intent.putExtra("Room Number", bathrooms.get(3).getRoomNumber());
+                        intent.putExtra("Ratings",  bathrooms.get(3).getRatings());
+                        intent.putStringArrayListExtra("Tags", bathrooms.get(3).getTags());
+                        startActivity(intent);
+                    }
+                });
                 //   bathrooms = map;
 
             }
@@ -132,7 +167,9 @@ public class Smith extends AppCompatActivity {
 
     protected void onStart() {
         super.onStart();
-        populateBathroomList("Smith");
+        Intent intent = getIntent();
+        String name = intent.getStringExtra("Building");
+        populateBathroomList(name);
 
 
     }
