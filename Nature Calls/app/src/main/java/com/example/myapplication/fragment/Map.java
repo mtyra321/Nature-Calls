@@ -96,7 +96,8 @@ public class Map extends Fragment implements OnMapReadyCallback, GoogleMap.OnInf
         setMap(googleMap);
         this.googleMap.moveCamera(CameraUpdateFactory.zoomTo(18));
         this.googleMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude())));
-        this.googleMap.setOnInfoWindowClickListener(this);
+//this.googleMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(48.81708256072279, -111.7850997671485)));
+                this.googleMap.setOnInfoWindowClickListener(this);
         googleMap.setMyLocationEnabled(true);
         addMapMarkers();
     }
@@ -146,38 +147,228 @@ public class Map extends Fragment implements OnMapReadyCallback, GoogleMap.OnInf
                 } catch (NumberFormatException e) {
                     Log.d(TAG, "addMapMarkers: no avatar for , setting default.");
                 }
-                ClusterMarker newClusterMarker = new ClusterMarker(
-                        new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude()),
-                        "test",
-                        snippet,
+
+                ClusterMarker Stc = new ClusterMarker(
+                        new LatLng(43.8147049258, -111.7845294624),
+                        "STC",
+                        "go to STC?",
                         avatar
                 );
-                mClusterManager.addItem(newClusterMarker);
-                mClusterMarkers.add(newClusterMarker);
-                ClusterMarker newClusterMarker1 = new ClusterMarker(
-                        new LatLng(43.81803644277783, -111.78968902677298),
-                        "Destination",
-                        "The testing end1",
+                mClusterManager.addItem(Stc);
+                mClusterMarkers.add(Stc);
+
+
+                ClusterMarker Benson = new ClusterMarker(
+                        new LatLng(43.8159285922, -111.7832128331),
+                        "Benson",
+                        "go to benson?",
                         avatar
                 );
-                mClusterManager.addItem(newClusterMarker1);
-                mClusterMarkers.add(newClusterMarker1);
-                ClusterMarker newClusterMarker2 = new ClusterMarker(
-                        new LatLng(43.81582601618893, -111.78317125886679),
-                        "2",
-                        "The testing end2",
+                mClusterManager.addItem(Benson);
+                mClusterMarkers.add(Benson);
+
+
+                ClusterMarker Austin = new ClusterMarker(
+                        new LatLng(43.8159128671, -111.7843896523),
+                        "Austin",
+                        "go to austin?",
                         avatar
                 );
-                mClusterManager.addItem(newClusterMarker2);
-                mClusterMarkers.add(newClusterMarker2);
-                ClusterMarker newClusterMarker3 = new ClusterMarker(
-                        new LatLng(43.81827110075013, -111.7827320471406),
-                        "3",
-                        "The testing end3",
+                mClusterManager.addItem(Austin);
+                mClusterMarkers.add(Austin);
+
+
+
+                ClusterMarker Rigby = new ClusterMarker(
+                        new LatLng(43.8170755450, -111.7843896523),
+                        "Rigby",
+                        "go to rigby?",
                         avatar
                 );
-                mClusterManager.addItem(newClusterMarker3);
-                mClusterMarkers.add(newClusterMarker3);
+                mClusterManager.addItem(Rigby);
+                mClusterMarkers.add(Rigby);
+
+
+                ClusterMarker Biddulph = new ClusterMarker(
+                        new LatLng(43.81708256072279, -111.7850997671485),
+                        "Biddulph",
+                        "go to biddulph?",
+                        avatar
+                );
+                mClusterManager.addItem(Biddulph);
+                mClusterMarkers.add(Biddulph);
+
+
+                ClusterMarker UniversityOperations = new ClusterMarker(
+                        new LatLng(43.8161206799, -111.7859014123),
+                        "University Operations",
+                        "go to university operations?",
+                        avatar
+                );
+                mClusterManager.addItem(UniversityOperations);
+                mClusterMarkers.add(UniversityOperations);
+
+
+                ClusterMarker ICenter = new ClusterMarker(
+                        new LatLng(43.818753023, -111.7852065159),
+                        "I-Center",
+                        "go to i-center?",
+                        avatar
+                );
+                mClusterManager.addItem(ICenter);
+                mClusterMarkers.add(ICenter);
+
+
+                ClusterMarker Snow = new ClusterMarker(
+                        new LatLng(43.82129520307986, -111.7838230356),
+                        "Snow",
+                        "go to snow?",
+                        avatar
+                );
+                mClusterManager.addItem(Snow);
+                mClusterMarkers.add(Snow);
+
+
+                ClusterMarker Hart = new ClusterMarker(
+                        new LatLng(43.8195958123, -111.7851798981),
+                        "Hart",
+                        "go to hart?",
+                        avatar
+                );
+                mClusterManager.addItem(Hart);
+                mClusterMarkers.add(Hart);
+
+
+                ClusterMarker Spori = new ClusterMarker(
+                        new LatLng(43.8208007518, -111.7824051529),
+                        "Spori",
+                        "go to spori?",
+                        avatar
+                );
+                mClusterManager.addItem(Spori);
+                mClusterMarkers.add(Spori);
+
+
+                ClusterMarker Kirkham = new ClusterMarker(
+                        new LatLng(43.82113288614258, -111.78161323070526),
+                        "Kirkham",
+                        "go to kirkham?",
+                        avatar
+                );
+                mClusterManager.addItem(Kirkham);
+                mClusterMarkers.add(Kirkham);
+
+
+                ClusterMarker Clarke = new ClusterMarker(
+                        new LatLng(43.8202390465179, -111.7817530408),
+                        "Clarke",
+                        "go to clarke?",
+                        avatar
+                );
+                mClusterManager.addItem(Clarke);
+                mClusterMarkers.add(Clarke);
+
+
+                ClusterMarker Smith = new ClusterMarker(
+                        new LatLng(43.81923246206163, -111.78152974694967),
+                        "Smith",
+                        "go to smith?",
+                        avatar
+                );
+                mClusterManager.addItem(Smith);
+                mClusterMarkers.add(Smith);
+
+
+                ClusterMarker Romney = new ClusterMarker(
+                        new LatLng(43.820234934099, -111.78307469934225),
+                        "Romney",
+                        "go to romney?",
+                        avatar
+                );
+                mClusterManager.addItem(Romney);
+                mClusterMarkers.add(Romney);
+
+
+                ClusterMarker Library = new ClusterMarker(
+                        new LatLng(43.81935922432509, -111.78304946591854),
+                        "Library",
+                        "go to library?",
+                        avatar
+                );
+                mClusterManager.addItem(Library);
+                mClusterMarkers.add(Library);
+
+
+                ClusterMarker MC = new ClusterMarker(
+                        new LatLng(43.8184124370, -111.78269952535629),
+                        "MC",
+                        "go to mc?",
+                        avatar
+                );
+                mClusterManager.addItem(MC);
+                mClusterMarkers.add(MC);
+
+
+                ClusterMarker Taylor = new ClusterMarker(
+                        new LatLng(43.81695023045907, -111.78249165415764),
+                        "Taylor",
+                        "go to taylor?",
+                        avatar
+                );
+                mClusterManager.addItem(Taylor);
+                mClusterMarkers.add(Taylor);
+
+
+                ClusterMarker Kimball = new ClusterMarker(
+                        new LatLng(43.81700587210477, -111.78151197731496),
+                        "Kimball",
+                        "go to kimball?",
+                        avatar
+                );
+                mClusterManager.addItem(Kimball);
+                mClusterMarkers.add(Kimball);
+
+
+                ClusterMarker Chapman = new ClusterMarker(
+                        new LatLng(43.818157884441504, -111.78055711090565),
+                        "Chapman",
+                        "go to chapman?",
+                        avatar
+                );
+                mClusterManager.addItem(Chapman);
+                mClusterMarkers.add(Chapman);
+
+
+                ClusterMarker Hinkley = new ClusterMarker(
+                        new LatLng(43.815865208004396, -111.77988320589066),
+                        "Hinkley",
+                        "go to hinkley?",
+                        avatar
+                );
+                mClusterManager.addItem(Hinkley);
+                mClusterMarkers.add(Hinkley);
+
+
+                ClusterMarker Ricks = new ClusterMarker(
+                        new LatLng(43.814823954985904, -111.78138960152864),
+                        "Ricks",
+                        "go to ricks?",
+                        avatar
+                );
+                mClusterManager.addItem(Ricks);
+                mClusterMarkers.add(Ricks);
+
+
+                ClusterMarker RicksGardens = new ClusterMarker(
+                        new LatLng(43.816114148009326, -111.78131885826588),
+                        "Ricks Gardens",
+                        "go to ricks gardens?",
+                        avatar
+                );
+                mClusterManager.addItem(RicksGardens);
+                mClusterMarkers.add(RicksGardens);
+
+
             } catch (NullPointerException e) {
                 Log.e(TAG, "addMapMarkers: NullPointerException: " + e.getMessage());
             }
