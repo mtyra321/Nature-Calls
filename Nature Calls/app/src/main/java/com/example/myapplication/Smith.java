@@ -3,7 +3,9 @@ package com.example.myapplication;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -77,20 +79,46 @@ public class Smith extends AppCompatActivity {
                 Button butt2 = findViewById(R.id.butt2);
                 Button butt3 = findViewById(R.id.butt3);
                 Button butt4 = findViewById(R.id.butt4);
+                Log.i("bathroomsSize", bathrooms.size() + "");
 
-                one.setText(bathrooms.get(0).toString());
-
-                two.setText(bathrooms.get(1).toString());
-                if (bathrooms.size() > 1) {
+                one.setText(bathrooms.get(0).getRoomNumber());
+                butt1.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getParent(), BathroomActivity.class);
+                        intent.putExtra("Building", bathrooms.get(0).getBuilding());
+                        intent.putExtra("Description", bathrooms.get(0).getDescription());
+                        intent.putExtra("Rating", bathrooms.get(0).getRating());
+                        intent.putExtra("Room Number", bathrooms.get(0).getRoomNumber());
+                        intent.putExtra("Ratings", (Parcelable) bathrooms.get(0).getRatings());
+                        intent.putExtra("Building", (Parcelable) bathrooms.get(0).getTags());
+                        startActivity(intent);
+                    }
+                });
+                if (bathrooms.size() == 1) {
+                    two.setVisibility(View.GONE);
+                    three.setVisibility(View.GONE);
+                    four.setVisibility(View.GONE);
+                    butt2.setVisibility(View.GONE);
+                    butt3.setVisibility(View.GONE);
+                    butt4.setVisibility(View.GONE);
+                    return;
+                }
+                two.setText(bathrooms.get(1).getRoomNumber());
+                if (bathrooms.size() == 2) {
                     three.setVisibility(View.GONE);
                     four.setVisibility(View.GONE);
                     butt3.setVisibility(View.GONE);
                     butt4.setVisibility(View.GONE);
                     return;
                 }
-                three.setText(bathrooms.get(2).toString());
-
-                four.setText(bathrooms.get(3).toString());
+                three.setText(bathrooms.get(2).getRoomNumber());
+                if (bathrooms.size() == 3) {
+                    four.setVisibility(View.GONE);
+                    butt4.setVisibility(View.GONE);
+                    return;
+                }
+                four.setText(bathrooms.get(3).getRoomNumber());
                 //   bathrooms = map;
 
             }
