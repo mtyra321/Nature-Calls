@@ -1,56 +1,38 @@
 package com.example.myapplication.fragment;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import android.content.Intent;
-import android.nfc.Tag;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.R;
-import com.firebase.client.Firebase;
-import com.firebase.client.FirebaseError;
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-import com.squareup.picasso.Picasso;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class stcN extends AppCompatActivity {
-EditText txtcomment;
-EditText Rating;
-Button btnsave;
-model member;
-TextView a,b;
-ArrayList<String> myArrayList = new ArrayList<>();
-ArrayAdapter<String> arrayAdapter;
-ListView mylistView;
-//Firebase myFirebase;
-DatabaseReference reff;
-DatabaseReference data;
+    EditText txtcomment;
+    EditText Rating;
+    Button btnsave;
+    model member;
+    TextView a,b;
+    ArrayList<String> myArrayList = new ArrayList<>();
+    ArrayAdapter<String> arrayAdapter;
+    ListView mylistView;
+    //Firebase myFirebase;
+    DatabaseReference reff;
+    DatabaseReference data;
 
 //    EditText addcomment;
 //    ImageView image_profile;
@@ -59,7 +41,7 @@ DatabaseReference data;
 //    String postId;
 //    String poblisherid;
 
- //   FirebaseUser firebaseUser;
+    //   FirebaseUser firebaseUser;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -105,7 +87,7 @@ DatabaseReference data;
 
 
         txtcomment = (EditText)findViewById(R.id.add_comment);
-      //  b= (TextView)findViewById(R.id.add_comment);
+        //  b= (TextView)findViewById(R.id.add_comment);
         btnsave = (Button)findViewById(R.id.button2);
         member = new model();
         reff = FirebaseDatabase.getInstance().getReference().child("STCFemale208");
@@ -113,12 +95,12 @@ DatabaseReference data;
         btnsave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               // int rate = Integer.parseInt(Rating.getText().toString().trim());
+                // int rate = Integer.parseInt(Rating.getText().toString().trim());
                 member.setComment(txtcomment.getText().toString().trim());
-               // member.setRating(rate);
+                // member.setRating(rate);
                 reff.push().setValue(member);
 
-        //        reff = FirebaseDatabase.getInstance().getReference().child("STCFemale208").child("M3dn4il_w04RmWbj6tP");
+                //        reff = FirebaseDatabase.getInstance().getReference().child("STCFemale208").child("M3dn4il_w04RmWbj6tP");
 //                reff.addValueEventListener(new ValueEventListener() {
 //                    @Override
 //                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
