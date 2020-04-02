@@ -5,22 +5,46 @@ import java.util.List;
 //will store the data on the bathrooms
 //testing testing
 public class Bathroom {
-    private String name;
     private String description;
-    private List<Tags> tags;
+    private List<String> tags;
     private List<Ratings> ratings;
-    private Integer roomNumber;
+    private String roomNumber;
     private String photo;
+    private String building;
+    private long rating;
 
-    public String getName() {
-        return name;
+    public long getRating() {
+        return rating;
+    }
+
+    public void setRating(long rating) {
+        this.rating = rating;
+    }
+
+    public Bathroom() {
+    }
+
+    public Bathroom(String description, List<String> tags, List<Ratings> ratings, String roomNumber, String building) {
+        this.description = description;
+        this.tags = tags;
+        this.ratings = ratings;
+        this.roomNumber = roomNumber;
+        this.building = building;
+    }
+
+    public String getBuilding() {
+        return building;
+    }
+
+    public void setBuilding(String building) {
+        this.building = building;
     }
 
     public String getDescription() {
         return description;
     }
 
-    public List<Tags> getTags() {
+    public List<String> getTags() {
         return tags;
     }
 
@@ -28,7 +52,7 @@ public class Bathroom {
         return ratings;
     }
 
-    public Integer getRoomNumber() {
+    public String getRoomNumber() {
         return roomNumber;
     }
 
@@ -36,15 +60,12 @@ public class Bathroom {
         return photo;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public void setDescription(String description) {
         this.description = description;
     }
 
-    public void setTags(List<Tags> tags) {
+    public void setTags(List<String> tags) {
         this.tags = tags;
     }
 
@@ -52,11 +73,17 @@ public class Bathroom {
         this.ratings = ratings;
     }
 
-    public void setRoomNumber(Integer roomNumber) {
+    public void setRoomNumber(String roomNumber) {
         this.roomNumber = roomNumber;
     }
 
     public void setPhoto(String photo) {
         this.photo = photo;
+    }
+
+    @Override
+    public String toString() {
+        return building+" "+ roomNumber+ "\n"+"Description: "+description+"\n"+"Rating: "+rating+"\n"+"Tags: "+tags+"\n"+"Ratings: "+ratings;
+
     }
 }

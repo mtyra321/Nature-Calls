@@ -17,15 +17,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity android:name=".fragment.austinM"></activity>
         <activity android:name=".fragment.Rick" />
-        <activity android:name=".fragment.Smith" />
         <activity android:name=".fragment.Library" />
         <activity android:name=".fragment.MC" />
         <activity android:name=".fragment.Hart" />
         <activity android:name=".fragment.Benson" />
         <activity android:name=".fragment.Austin" />
         <activity android:name=".fragment.stcN" />
+        <activity android:name=".BathroomActivity" />
 
         <uses-library
             android:name="org.apache.http.legacy"
