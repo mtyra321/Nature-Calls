@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.myapplication.fragment.stcN;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -29,12 +30,21 @@ public class BathroomActivity extends AppCompatActivity {
     private String photo;
     private String building;
     private long rating;
+    private Button button;
 
     //DatabaseReference childRef = conditionRef.child("tester");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bathroom_info);
+        button = (Button)findViewById(R.id.reviewBtn);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openActivty2();
+            }
+        });
+
         Intent intent = getIntent();
         description = intent.getStringExtra("Description");
         roomNumber = intent.getStringExtra("Room Number");
@@ -44,8 +54,14 @@ public class BathroomActivity extends AppCompatActivity {
         //ratings = intent.getParcelableArrayListExtra("Ratings");
         TextView name = findViewById(R.id.bRoomName);
         name.setText(building + " " + roomNumber);
-        TextView tagsView = findViewById(R.id.tags);
-//        tagsView.setText(tags.toString());
+        String s = " " ;
+        for (String k: tags){
+            s += k+" ";
+        }
+
+        TextView tagsView = findViewById(R.id.Tags);
+        tagsView.setText(s);
+
         TextView descView = findViewById(R.id.description);
         descView.setText(description);
         findViewById(R.id.poop1).setVisibility(View.GONE);
@@ -53,6 +69,7 @@ public class BathroomActivity extends AppCompatActivity {
         findViewById(R.id.poop3).setVisibility(View.GONE);
         findViewById(R.id.poop4).setVisibility(View.GONE);
         findViewById(R.id.poop5).setVisibility(View.GONE);
+
 
         switch ((int) rating) {
             case 0:
@@ -86,6 +103,13 @@ public class BathroomActivity extends AppCompatActivity {
 
     }
 
+    public void openActivty2(){
+        Intent intent = new Intent(this, stcN.class);
+        intent.putExtra("building", building);
+        intent.putExtra("roomNumber", roomNumber);
+        startActivity(intent);
+
+    }
 
     protected void onStart() {
         super.onStart();

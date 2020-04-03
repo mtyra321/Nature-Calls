@@ -1,5 +1,6 @@
 package com.example.myapplication.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -32,6 +33,7 @@ public class stcN extends AppCompatActivity {
     ListView mylistView;
     //Firebase myFirebase;
     DatabaseReference reff;
+  //  DatabaseReference reff1;
     DatabaseReference data;
 
 //    EditText addcomment;
@@ -48,49 +50,20 @@ public class stcN extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stc_n);
-//        Firebase.setAndroidContext(this);
-//
-//        myFirebase = new Firebase("https://naturelogin.firebaseio.com/");
-//        mylistView = (ListView) findViewById(R.id.ListView);
-//
-//        ArrayAdapter<String> myArrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1);
-//        mylistView.setAdapter(myArrayAdapter);
-//        myFirebase.addChildEventListener(new ChildEventListener() {
-//            @Override
-//            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-//                String myChildValues = dataSnapshot.getValue(String.class);
-//                myArrayList.add(myChildValues);
-//                myArrayAdapter.notifyDataSetChanged();
-//
-//            }
-//
-//            @Override
-//            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-//                myArrayAdapter.notifyDataSetChanged();
-//            }
-//
-//            @Override
-//            public void onChildRemoved(DataSnapshot dataSnapshot) {
-//
-//            }
-//
-//            @Override
-//            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-//
-//            }
-//
-//            @Override
-//            public void onCancelled(FirebaseError firebaseError) {
-//
-//            }
-//        });
-
 
         txtcomment = (EditText)findViewById(R.id.add_comment);
         //  b= (TextView)findViewById(R.id.add_comment);
         btnsave = (Button)findViewById(R.id.button2);
         member = new model();
-        reff = FirebaseDatabase.getInstance().getReference().child("STCFemale208");
+        String building;
+        String roomNuber;
+
+        Intent intent = getIntent();
+        building = intent.getStringExtra("building");
+        roomNuber = intent.getStringExtra("roomNumber");
+
+
+        reff = FirebaseDatabase.getInstance().getReference().child("Bathrooms").child("Bathrooms").child(building).child(roomNuber).child("comment");
 
         btnsave.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,28 +73,12 @@ public class stcN extends AppCompatActivity {
                 // member.setRating(rate);
                 reff.push().setValue(member);
 
-                //        reff = FirebaseDatabase.getInstance().getReference().child("STCFemale208").child("M3dn4il_w04RmWbj6tP");
-//                reff.addValueEventListener(new ValueEventListener() {
-//                    @Override
-//                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                        String comment = dataSnapshot.child("comment").getValue().toString();
-//                        String rate = dataSnapshot.child("rating").getValue().toString();
-//                        a.setText(comment);
-//                        b.setText(rate);
-//                    }
-//
-//                    @Override
-//                    public void onCancelled(@NonNull DatabaseError databaseError) {
-//
-//                    }
-//                });
-
             }
         });
 
-        data = FirebaseDatabase.getInstance().getReference().child("STCFemal208");
+        data = FirebaseDatabase.getInstance().getReference().child("Bathrooms").child("Bathrooms").child(building).child(roomNuber).child("comment");
         mylistView =  (ListView) findViewById(R.id.ListView);
-        arrayAdapter =  new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1);
+        arrayAdapter =  new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,myArrayList);
         mylistView.setAdapter(arrayAdapter);
         data.addChildEventListener(new ChildEventListener() {
             @Override

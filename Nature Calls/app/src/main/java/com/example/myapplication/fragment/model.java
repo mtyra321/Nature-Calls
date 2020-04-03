@@ -22,4 +22,9 @@ public class  model {
     public void setRating(Integer rating) {
         this.rating = rating;
     }
+
+    @Override
+    public String toString() {
+        return Comment ;
+    }
 }
