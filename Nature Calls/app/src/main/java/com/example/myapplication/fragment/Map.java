@@ -416,15 +416,7 @@ public class Map extends Fragment implements OnMapReadyCallback, GoogleMap.OnInf
                             dialog.dismiss();
                         }
                     })
-                    .setNeutralButton("Bathroom Info", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                               Intent intent = new Intent(getActivity(), BathroomActivity.class);
 
-                             startActivity(intent);
-                        }
-
-                    })
                     .setNegativeButton("No", new DialogInterface.OnClickListener() {
                         public void onClick(final DialogInterface dialog, @SuppressWarnings("unused") final int id) {
                             dialog.cancel();

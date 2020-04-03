@@ -193,7 +193,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent in = new Intent(getActivity(), BathroomList.class);
-                in.putExtra("Building", "Ricks Garden");
+                in.putExtra("Building", "Ricks Gardens");
                 startActivity(in);
 
             }
