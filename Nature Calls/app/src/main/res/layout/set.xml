@@ -10,21 +10,19 @@
         android:layout_width="match_parent"
         android:layout_height="150dp">
         <LinearLayout
-            android:background="#FF9800"
+            android:background="@drawable/gradbackground"
             android:layout_width="match_parent"
             android:layout_height="150dp"
-            android:orientation="vertical"
-            >
+            android:orientation="vertical">
 
             <TextView
-                android:layout_width="441dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="17dp"
-                android:layout_marginTop="50dp"
-                android:fontFamily="@font/slackey"
-                android:textColor="@color/colorPrimary"
+                android:fontFamily="@font/bangers"
                 android:text="Request Changes"
-                android:textSize="35dp" />
+                android:layout_marginLeft="90dp"
+                android:layout_marginTop="50dp"
+                android:textSize="40dp" />
         </LinearLayout>
     </RelativeLayout>
 
@@ -81,15 +79,13 @@
 
     </LinearLayout>
 
-
     <Button
         android:id="@+id/update"
-        android:layout_width="189dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="120dp"
-        android:background="@drawable/custom_button"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/gradbackground"
         android:fontFamily="@font/bangers"
-        android:text="UPDATE"></Button>
-
+        android:text="UPDATE" />
 
 </LinearLayout>

@@ -8,13 +8,13 @@
     </item>
     <item
         android:id="@+id/search"
-        android:title="Search"
+        android:title="Map"
         android:icon="@drawable/ic_tnqmsxwn01">
 
     </item>
     <item
         android:id="@+id/bookmark"
-        android:title="Setting"
+        android:title="Request"
         android:icon="@drawable/ic_3wbfvixx01">
 
     </item>

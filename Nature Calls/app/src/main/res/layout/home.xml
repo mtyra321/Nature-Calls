@@ -58,24 +58,24 @@
                 >
 
                 <LinearLayout
+                    android:layout_width="105dp"
+                    android:layout_height="111dp"
                     android:layout_gravity="center_horizontal|center_vertical"
                     android:layout_margin="16dp"
-                    android:orientation="vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:orientation="vertical">
 
 
                     <ImageView
-                        android:layout_width="69dp"
-                        android:layout_height="61dp"
+                        android:layout_width="63dp"
+                        android:layout_height="50dp"
                         android:layout_gravity="center_horizontal"
                         android:src="@drawable/ic_nerd" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="STC"
                         android:layout_gravity="center_horizontal"
+                        android:text="STC"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
                         android:textSize="18sp"
@@ -83,12 +83,13 @@
 
                     <Button
                         android:id="@+id/stc"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="38dp"
                         android:layout_row="0"
                         android:layout_column="0"
-                        android:text="Button"
-                        android:background="@drawable/custom_button"/>
+                        android:background="@drawable/custom_button"
+                        android:fontFamily="@font/slackey"
+                        android:text="GO" />
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
@@ -105,24 +106,24 @@
                 >
 
                 <LinearLayout
+                    android:layout_width="105dp"
+                    android:layout_height="111dp"
                     android:layout_gravity="center_horizontal|center_vertical"
                     android:layout_margin="16dp"
-                    android:orientation="vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:orientation="vertical">
 
 
                     <ImageView
-                        android:layout_width="69dp"
-                        android:layout_height="55dp"
+                        android:layout_width="63dp"
+                        android:layout_height="50dp"
                         android:layout_gravity="center_horizontal"
                         android:src="@drawable/ic_benson" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Benson"
                         android:layout_gravity="center_horizontal"
+                        android:text="Benson"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
                         android:textSize="18sp"
@@ -130,12 +131,13 @@
 
                     <Button
                         android:id="@+id/benson"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="36dp"
                         android:layout_row="0"
                         android:layout_column="0"
-                        android:text="Button"
-                        android:background="@drawable/custom_button"/>
+                        android:background="@drawable/custom_button"
+                        android:fontFamily="@font/slackey"
+                        android:text="GO" />
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
@@ -152,24 +154,24 @@
                 >
 
                 <LinearLayout
+                    android:layout_width="105dp"
+                    android:layout_height="111dp"
                     android:layout_gravity="center_horizontal|center_vertical"
                     android:layout_margin="16dp"
-                    android:orientation="vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:orientation="vertical">
 
 
                     <ImageView
-                        android:layout_width="88dp"
-                        android:layout_height="58dp"
+                        android:layout_width="63dp"
+                        android:layout_height="50dp"
                         android:layout_gravity="center_horizontal"
                         android:src="@drawable/ic_hart" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="HART"
                         android:layout_gravity="center_horizontal"
+                        android:text="Hart"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
                         android:textSize="18sp"
@@ -177,14 +179,17 @@
 
                     <Button
                         android:id="@+id/hart"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="38dp"
                         android:layout_row="0"
                         android:layout_column="0"
-                        android:text="Button"
-                        android:background="@drawable/custom_button"/>
+                        android:background="@drawable/custom_button"
+                        android:fontFamily="@font/slackey"
+                        android:text="GO" />
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
+
             <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -198,24 +203,24 @@
                 >
 
                 <LinearLayout
+                    android:layout_width="105dp"
+                    android:layout_height="111dp"
                     android:layout_gravity="center_horizontal|center_vertical"
                     android:layout_margin="16dp"
-                    android:orientation="vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:orientation="vertical">
 
 
                     <ImageView
-                        android:layout_width="88dp"
-                        android:layout_height="62dp"
+                        android:layout_width="63dp"
+                        android:layout_height="50dp"
                         android:layout_gravity="center_horizontal"
                         android:src="@drawable/ic_austin" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="AUSTIN"
                         android:layout_gravity="center_horizontal"
+                        android:text="Austin"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
                         android:textSize="18sp"
@@ -223,15 +228,17 @@
 
                     <Button
                         android:id="@+id/austin"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="38dp"
                         android:layout_row="0"
                         android:layout_column="0"
-                        android:text="Button"
-                        android:background="@drawable/custom_button"/>
+                        android:background="@drawable/custom_button"
+                        android:fontFamily="@font/slackey"
+                        android:text="GO" />
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
+
             <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -245,24 +252,24 @@
                 >
 
                 <LinearLayout
+                    android:layout_width="105dp"
+                    android:layout_height="111dp"
                     android:layout_gravity="center_horizontal|center_vertical"
                     android:layout_margin="16dp"
-                    android:orientation="vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:orientation="vertical">
 
 
                     <ImageView
-                        android:layout_width="88dp"
-                        android:layout_height="73dp"
+                        android:layout_width="63dp"
+                        android:layout_height="50dp"
                         android:layout_gravity="center_horizontal"
                         android:src="@drawable/ic_mc" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="MC"
                         android:layout_gravity="center_horizontal"
+                        android:text="MC"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
                         android:textSize="18sp"
@@ -270,15 +277,17 @@
 
                     <Button
                         android:id="@+id/mc"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="38dp"
                         android:layout_row="0"
                         android:layout_column="0"
-                        android:text="Button"
-                        android:background="@drawable/custom_button"/>
+                        android:background="@drawable/custom_button"
+                        android:fontFamily="@font/slackey"
+                        android:text="GO" />
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
+
             <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -292,24 +301,24 @@
                 >
 
                 <LinearLayout
+                    android:layout_width="105dp"
+                    android:layout_height="111dp"
                     android:layout_gravity="center_horizontal|center_vertical"
                     android:layout_margin="16dp"
-                    android:orientation="vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:orientation="vertical">
 
 
                     <ImageView
-                        android:layout_width="61dp"
-                        android:layout_height="78dp"
+                        android:layout_width="63dp"
+                        android:layout_height="50dp"
                         android:layout_gravity="center_horizontal"
                         android:src="@drawable/ic_library" />
 
                     <TextView
-                        android:layout_width="111dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="LIBRARY"
                         android:layout_gravity="center_horizontal"
+                        android:text="Library"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
                         android:textSize="18sp"
@@ -318,14 +327,16 @@
                     <Button
                         android:id="@+id/library"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="38dp"
                         android:layout_row="0"
                         android:layout_column="0"
-                        android:text="Button"
-                        android:background="@drawable/custom_button"/>
+                        android:background="@drawable/custom_button"
+                        android:fontFamily="@font/slackey"
+                        android:text="GO" />
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
+
             <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -339,41 +350,42 @@
                 >
 
                 <LinearLayout
+                    android:layout_width="105dp"
+                    android:layout_height="111dp"
                     android:layout_gravity="center_horizontal|center_vertical"
                     android:layout_margin="16dp"
-                    android:orientation="vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:orientation="vertical">
 
 
                     <ImageView
-                        android:layout_width="88dp"
-                        android:layout_height="61dp"
+                        android:layout_width="63dp"
+                        android:layout_height="50dp"
                         android:layout_gravity="center_horizontal"
                         android:src="@drawable/ic_pickle" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="RICK"
                         android:layout_gravity="center_horizontal"
+                        android:text="Rick"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
                         android:textSize="18sp"
-                        android:textStyle="bold"
-                        />
+                        android:textStyle="bold" />
 
                     <Button
                         android:id="@+id/rick"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="38dp"
                         android:layout_row="0"
                         android:layout_column="0"
-                        android:text="Button"
-                        android:background="@drawable/custom_button"/>
+                        android:background="@drawable/custom_button"
+                        android:fontFamily="@font/slackey"
+                        android:text="GO" />
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
+
             <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -387,24 +399,24 @@
                 >
 
                 <LinearLayout
+                    android:layout_width="105dp"
+                    android:layout_height="111dp"
                     android:layout_gravity="center_horizontal|center_vertical"
                     android:layout_margin="16dp"
-                    android:orientation="vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:orientation="vertical">
 
 
                     <ImageView
-                        android:layout_width="67dp"
-                        android:layout_height="61dp"
+                        android:layout_width="63dp"
+                        android:layout_height="50dp"
                         android:layout_gravity="center_horizontal"
                         android:src="@drawable/ic_smith" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="SMITH"
                         android:layout_gravity="center_horizontal"
+                        android:text="Smith"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
                         android:textSize="18sp"
@@ -412,15 +424,17 @@
 
                     <Button
                         android:id="@+id/smith"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="38dp"
                         android:layout_row="0"
                         android:layout_column="0"
-                        android:text="Button"
-                        android:background="@drawable/custom_button"/>
+                        android:background="@drawable/custom_button"
+                        android:fontFamily="@font/slackey"
+                        android:text="GO" />
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
+
 
             <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
@@ -435,24 +449,24 @@
                 >
 
                 <LinearLayout
+                    android:layout_width="105dp"
+                    android:layout_height="111dp"
                     android:layout_gravity="center_horizontal|center_vertical"
                     android:layout_margin="16dp"
-                    android:orientation="vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:orientation="vertical">
 
 
                     <ImageView
-                        android:layout_width="67dp"
-                        android:layout_height="61dp"
+                        android:layout_width="63dp"
+                        android:layout_height="50dp"
                         android:layout_gravity="center_horizontal"
                         android:src="@drawable/ic_rigby" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="RIGBY"
                         android:layout_gravity="center_horizontal"
+                        android:text="Rigby"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
                         android:textSize="18sp"
@@ -460,12 +474,216 @@
 
                     <Button
                         android:id="@+id/rigby"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="38dp"
                         android:layout_row="0"
                         android:layout_column="0"
-                        android:text="Button"
-                        android:background="@drawable/custom_button"/>
+                        android:background="@drawable/custom_button"
+                        android:fontFamily="@font/slackey"
+                        android:text="GO" />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                app:cardElevation="8dp"
+                app:cardCornerRadius="8dp"
+                >
+
+                <LinearLayout
+                    android:layout_width="105dp"
+                    android:layout_height="111dp"
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:layout_margin="16dp"
+                    android:orientation="vertical">
+
+
+                    <ImageView
+                        android:layout_width="63dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/ic_clark" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="Clarke"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/clark"
+                        android:layout_width="match_parent"
+                        android:layout_height="38dp"
+                        android:layout_row="0"
+                        android:layout_column="0"
+                        android:background="@drawable/custom_button"
+                        android:fontFamily="@font/slackey"
+                        android:text="GO" />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                app:cardElevation="8dp"
+                app:cardCornerRadius="8dp"
+                >
+
+                <LinearLayout
+                    android:layout_width="105dp"
+                    android:layout_height="111dp"
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:layout_margin="16dp"
+                    android:orientation="vertical">
+
+
+                    <ImageView
+                        android:layout_width="63dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/ic_chapman" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="Chapman"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/chapman"
+                        android:layout_width="match_parent"
+                        android:layout_height="38dp"
+                        android:layout_row="0"
+                        android:layout_column="0"
+                        android:background="@drawable/custom_button"
+                        android:fontFamily="@font/slackey"
+                        android:text="GO" />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                app:cardElevation="8dp"
+                app:cardCornerRadius="8dp"
+                >
+
+                <LinearLayout
+                    android:layout_width="105dp"
+                    android:layout_height="111dp"
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:layout_margin="16dp"
+                    android:orientation="vertical">
+
+
+                    <ImageView
+                        android:layout_width="63dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/ic_garden" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="Garden"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/garden"
+                        android:layout_width="match_parent"
+                        android:layout_height="38dp"
+                        android:layout_row="0"
+                        android:layout_column="0"
+                        android:background="@drawable/custom_button"
+                        android:fontFamily="@font/slackey"
+                        android:text="GO" />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                app:cardElevation="8dp"
+                app:cardCornerRadius="8dp"
+                >
+
+                <LinearLayout
+                    android:layout_width="91dp"
+                    android:layout_height="119dp"
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:layout_margin="16dp"
+                    android:orientation="vertical">
+
+
+                    <ImageView
+                        android:layout_width="67dp"
+                        android:layout_height="46dp"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/ic_spori" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="Spori"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/spori"
+                        android:layout_width="match_parent"
+                        android:layout_height="32dp"
+                        android:layout_row="0"
+                        android:layout_column="0"
+                        android:background="@drawable/custom_button"
+                        android:fontFamily="@font/slackey"
+                        android:text="GO" />
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
@@ -483,40 +701,44 @@
                 >
 
                 <LinearLayout
+                    android:layout_width="91dp"
+                    android:layout_height="119dp"
                     android:layout_gravity="center_horizontal|center_vertical"
                     android:layout_margin="16dp"
-                    android:orientation="vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:orientation="vertical">
 
 
                     <ImageView
                         android:layout_width="67dp"
-                        android:layout_height="61dp"
+                        android:layout_height="46dp"
                         android:layout_gravity="center_horizontal"
-                        android:src="@drawable/ic_cute" />
+                        android:src="@drawable/ic_kirkham" />
 
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Not sure"
                         android:layout_gravity="center_horizontal"
+                        android:text="Kirkham"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
                     <Button
-                        android:id="@+id/poop"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:id="@+id/kirkham"
+                        android:layout_width="match_parent"
+                        android:layout_height="32dp"
                         android:layout_row="0"
                         android:layout_column="0"
-                        android:text="Button"
-                        android:background="@drawable/custom_button"/>
+                        android:background="@drawable/custom_button"
+                        android:fontFamily="@font/slackey"
+                        android:text="GO" />
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
+
+
+
 
         </GridLayout>
 

@@ -20,6 +20,7 @@
         <activity android:name=".fragment.BathroomInfo"></activity>
         <activity android:name=".fragment.austinM" />
         <activity android:name=".BathroomList" />
+        <activity android:name=".fragment.user_profile" />
 
 
         <activity android:name=".fragment.stcN" />

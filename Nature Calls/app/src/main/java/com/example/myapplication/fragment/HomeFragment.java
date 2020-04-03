@@ -77,11 +77,17 @@ public class HomeFragment extends Fragment {
         Button btn5 = (Button) viewRoot.findViewById(R.id.library);
         Button btn6 = (Button) viewRoot.findViewById(R.id.smith);
         Button btn7 = (Button) viewRoot.findViewById(R.id.rick);
-
+        Button btn8 = (Button) viewRoot.findViewById(R.id.rigby);
+        Button btn9 = (Button) viewRoot.findViewById(R.id.clark);
+        Button btn10 = (Button) viewRoot.findViewById(R.id.chapman);
+        Button btn11 = (Button) viewRoot.findViewById(R.id.garden);
+        Button btn12 = (Button) viewRoot.findViewById(R.id.spori);
+        Button btn13 = (Button) viewRoot.findViewById(R.id.kirkham);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in = new Intent(getActivity(), stcN.class);
+                Intent in = new Intent(getActivity(), BathroomList.class);
+                in.putExtra("Building", "STC");
                 startActivity(in);
 
             }
@@ -156,9 +162,61 @@ public class HomeFragment extends Fragment {
 
             }
         });
+        btn8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(getActivity(), BathroomList.class);
+                in.putExtra("Building", "Rigby");
+                startActivity(in);
 
+            }
+        });
+        btn9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(getActivity(), BathroomList.class);
+                in.putExtra("Building", "Clarke");
+                startActivity(in);
 
-//
+            }
+        });
+        btn10.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(getActivity(), BathroomList.class);
+                in.putExtra("Building", "Chapman");
+                startActivity(in);
+
+            }
+        });
+        btn11.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(getActivity(), BathroomList.class);
+                in.putExtra("Building", "Ricks Garden");
+                startActivity(in);
+
+            }
+        });
+
+  btn12.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(getActivity(), BathroomList.class);
+                in.putExtra("Building", "Spori");
+                startActivity(in);
+
+            }
+        });
+        btn13.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(getActivity(), BathroomList.class);
+                in.putExtra("Building", "Kirkham");
+                startActivity(in);
+
+            }
+        });
 //        title = viewRoot.findViewById(R.id.textGrid);
 //        font = Typeface.createFromAsset(getActivity().getAssets(), "fonts/PermanentMarker-Regular.ttf");
 //        title.setTypeface(font);

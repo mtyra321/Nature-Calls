@@ -6,16 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".fragment.stcN"
     android:orientation="vertical"
+    android:background="#7ECDDC39"
     >
-   <ListView
-       android:id="@+id/ListView"
-       android:layout_width="match_parent"
-       android:layout_height="match_parent"
-       android:layout_centerHorizontal="true"
-       android:layout_centerVertical="true"
-       >
 
-   </ListView>
+    <ListView
+        android:id="@+id/ListView"
+        android:layout_width="376dp"
+        android:layout_height="691dp"
+        android:layout_centerInParent="true"
+        android:textFilterEnabled="false">
+
+    </ListView>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -34,15 +35,17 @@
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:background="@android:color/transparent"
-
+            android:hint="Add comment here..."
             />
 
         <Button
             android:id="@+id/button2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Button"
+            android:text="Comment"
             android:layout_marginLeft="300dp"
+            android:background="@drawable/custom_button"
+            android:fontFamily="@font/slackey"
             />
 
     </RelativeLayout>
