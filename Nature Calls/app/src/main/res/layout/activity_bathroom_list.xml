@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.Rick"
 
     >
 
@@ -17,7 +16,8 @@
         android:layout_marginTop="296dp"
         android:text="TextView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:fontFamily="@font/slackey"/>
 
     <TextView
         android:id="@+id/Three"
@@ -28,7 +28,8 @@
         android:layout_marginTop="212dp"
         android:text="TextView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:fontFamily="@font/slackey"/>
 
     <Button
         android:id="@+id/butt2"
@@ -39,7 +40,9 @@
         android:layout_marginTop="36dp"
         android:text="Go"
         app:layout_constraintStart_toEndOf="@+id/Two"
-        app:layout_constraintTop_toBottomOf="@+id/butt1" />
+        app:layout_constraintTop_toBottomOf="@+id/butt1"
+        android:background="@drawable/custom_button"
+        android:fontFamily="@font/slackey"/>
 
     <Button
         android:id="@+id/butt3"
@@ -50,7 +53,9 @@
         android:layout_marginTop="36dp"
         android:text="Go"
         app:layout_constraintStart_toEndOf="@+id/Three"
-        app:layout_constraintTop_toBottomOf="@+id/butt2" />
+        app:layout_constraintTop_toBottomOf="@+id/butt2"
+        android:background="@drawable/custom_button"
+        android:fontFamily="@font/slackey"/>
 
     <Button
         android:id="@+id/butt4"
@@ -61,7 +66,9 @@
         android:layout_marginTop="36dp"
         android:text="Go"
         app:layout_constraintStart_toEndOf="@+id/Four"
-        app:layout_constraintTop_toBottomOf="@+id/butt3" />
+        app:layout_constraintTop_toBottomOf="@+id/butt3"
+        android:background="@drawable/custom_button"
+        android:fontFamily="@font/slackey"/>
 
     <TextView
         android:id="@+id/One"
@@ -72,7 +79,8 @@
         android:layout_marginTop="60dp"
         android:text="TextView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:fontFamily="@font/slackey"/>
 
     <TextView
         android:id="@+id/Two"
@@ -83,7 +91,8 @@
         android:layout_marginTop="128dp"
         android:text="TextView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:fontFamily="@font/slackey"/>
 
     <Button
         android:id="@+id/butt1"
@@ -94,5 +103,7 @@
         android:layout_marginTop="36dp"
         android:text="Go"
         app:layout_constraintStart_toEndOf="@+id/One"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/custom_button"
+        android:fontFamily="@font/slackey"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

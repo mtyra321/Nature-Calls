@@ -7,15 +7,15 @@
     tools:context=".fragment.stcN"
     android:orientation="vertical"
     >
-
-
    <ListView
        android:id="@+id/ListView"
        android:layout_width="match_parent"
        android:layout_height="match_parent"
        android:layout_centerHorizontal="true"
        android:layout_centerVertical="true"
-       ></ListView>
+       >
+
+   </ListView>
 
     <RelativeLayout
         android:layout_width="match_parent"
