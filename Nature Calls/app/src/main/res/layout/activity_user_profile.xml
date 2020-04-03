@@ -8,40 +8,21 @@
     android:orientation="vertical">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="250dp">
+        android:layout_height="150dp">
         <LinearLayout
             android:background="@drawable/gradbackground"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_height="150dp"
             android:orientation="vertical">
-            <ImageView
-                android:id="@+id/profile_image"
-                android:layout_marginTop="35dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                app:srcCompat="@drawable/com_facebook_profile_picture_blank_square" />
+
             <TextView
-                android:id="@+id/full_name"
-                android:layout_marginTop="10dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:includeFontPadding="false"
-                android:text="Skylar So"
-                android:textColor="#fff"
-                android:textStyle="bold"
-                android:textSize="21sp">
-            </TextView>
-            <TextView
-                android:layout_gravity="center_horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:includeFontPadding="false"
-                android:text="skylarso"
-                android:textColor="#fff"
-                android:textSize="14sp">
-            </TextView>
+                android:fontFamily="@font/bangers"
+                android:text="Request Changes"
+                android:layout_marginLeft="90dp"
+                android:layout_marginTop="50dp"
+                android:textSize="40dp" />
         </LinearLayout>
     </RelativeLayout>
 
@@ -56,47 +37,55 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Full Name">
+
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/user_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/ic_human"
                 android:drawablePadding="20dp"
-                android:text="Skylar So"/>
+                android:text="" />
 
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Email">
+
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/user_mail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/ic_email"
                 android:drawablePadding="20dp"
-                android:text="soszehhhh96@gmail.com"/>
+                android:text="" />
 
         </com.google.android.material.textfield.TextInputLayout>
+
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="password">
+            android:layout_height="93dp"
+            android:hint="Make a Request">
+
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/request"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/ic_password"
+                android:drawableLeft="@drawable/ic_action_note"
                 android:drawablePadding="20dp"
-                android:text="*******"/>
+                android:text="" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
     </LinearLayout>
 
     <Button
-        android:background="@drawable/gradbackground"
-        android:fontFamily="@font/bangers"
+        android:id="@+id/update"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:layout_width="match_parent"
+        android:background="@drawable/gradbackground"
+        android:fontFamily="@font/bangers"
         android:text="UPDATE" />
 
 </LinearLayout>
