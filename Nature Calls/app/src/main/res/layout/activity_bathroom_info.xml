@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.BathroomInfo"
+    android:background="@drawable/pii"
+    >
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/quick_view_toilet"></ImageView>
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="242dp"
+        android:layout_height="279dp"
+        android:layout_below="@+id/Tags"
+        android:layout_marginStart="144dp"
+        android:layout_marginLeft="144dp"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/slackey"
+        android:text="TextView"
+        android:textColor="#FF5722"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/poop1"
+        android:layout_width="35dp"
+        android:layout_height="37dp"
+        android:layout_marginLeft="190dp"
+        android:layout_marginTop="120dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_886736" />
+    <ImageView
+        android:id="@+id/poop2"
+        android:layout_width="35dp"
+        android:layout_height="37dp"
+        android:layout_marginLeft="230dp"
+        android:layout_marginTop="120dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_886736"  />
+    <ImageView
+        android:id="@+id/poop3"
+        android:layout_width="35dp"
+        android:layout_height="37dp"
+        android:layout_marginLeft="270dp"
+        android:layout_marginTop="120dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_886736" />
+    <ImageView
+        android:id="@+id/poop4"
+        android:layout_width="35dp"
+        android:layout_height="37dp"
+        android:layout_marginLeft="310dp"
+        android:layout_marginTop="120dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_886736"  />
+    <ImageView
+        android:id="@+id/poop5"
+        android:layout_width="35dp"
+        android:layout_height="37dp"
+        android:layout_marginLeft="350dp"
+        android:layout_marginTop="120dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_886736" />
+
+    <TextView
+        android:id="@+id/Tags"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="180dp"
+        android:layout_marginTop="160dp"
+        android:text="tags"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:fontFamily="@font/slackey"
+        />
+
+    <TextView
+        android:id="@+id/bRoomName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="55dp"
+        android:fontFamily="@font/slackey"
+        android:text="building room#"
+        android:textColor="#000000"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/reviewBtn"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="600dp"
+        android:layout_marginRight="72dp"
+        android:background="@drawable/custom_button"
+        android:text="reviews"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:fontFamily="@font/slackey"/>
+
+
+
+</RelativeLayout>
+

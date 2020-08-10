@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.stcN"
+    android:orientation="vertical"
+    android:background="#7ECDDC39"
+    >
+
+    <ListView
+        android:id="@+id/ListView"
+        android:layout_width="376dp"
+        android:layout_height="691dp"
+        android:layout_centerInParent="true"
+        android:textFilterEnabled="false">
+
+    </ListView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottom"
+        android:background="#fff"
+        android:padding="4dp"
+        android:layout_alignParentBottom="true"
+        >
+
+        <EditText
+            android:id="@+id/add_comment"
+            android:layout_width="280dp"
+            android:layout_height="34dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@android:color/transparent"
+            android:hint="Add comment here..."
+            />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Comment"
+            android:layout_marginLeft="300dp"
+            android:background="@drawable/custom_button"
+            android:fontFamily="@font/slackey"
+            />
+
+    </RelativeLayout>
+
+</RelativeLayout>
+
