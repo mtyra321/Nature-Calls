@@ -4,12 +4,7 @@ import android.os.Parcelable;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-<<<<<<< HEAD
-//test
-//test
-=======
-
->>>>>>> 774ee39a8548967581164f8176c7315d97863af5
+//testblah blah
 //will store the data on the bathrooms
 //testing testing
 public class Bathroom implements Serializable {
