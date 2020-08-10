@@ -5,7 +5,7 @@ import android.os.Parcelable;
 import java.io.Serializable;
 import java.util.ArrayList;
 //test
-
+//test
 //will store the data on the bathrooms
 //testing testing
 public class Bathroom implements Serializable {
