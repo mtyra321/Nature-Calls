@@ -18,7 +18,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".fragment.BathroomInfo"></activity>
-        <activity android:name=".fragment.austinM" />
         <activity android:name=".BathroomList" />
         <activity android:name=".fragment.user_profile" />
 

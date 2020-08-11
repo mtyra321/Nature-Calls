@@ -41,7 +41,7 @@ public class BathroomList extends AppCompatActivity {
     public void populateBathroomList(String name) {
         Intent intent = new Intent(this, BathroomActivity.class);
         bathrooms = new ArrayList<>();
-        mRootRef.child("Bathrooms").child("Bathrooms").child(name).addValueEventListener(new ValueEventListener() {
+        mRootRef.child("Bathrooms").child("Byui").child(name).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 Map<String, Object> map = (Map<String, Object>) dataSnapshot.getValue();

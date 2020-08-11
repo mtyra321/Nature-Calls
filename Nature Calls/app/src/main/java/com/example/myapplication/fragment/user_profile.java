@@ -3,6 +3,7 @@ package com.example.myapplication.fragment;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -39,7 +40,9 @@ public class user_profile extends AppCompatActivity {
                 String signName = name.getText().toString();
                 String userEmail = gmail.getText().toString();
                 String requests = requested.getText().toString();
-
+                Log.i("name", signName);
+                Log.i("email", userEmail);
+                Log.i("req", requests);
 
                 UserHelperClass helperClass = new UserHelperClass(signName, userEmail, requests);
                 reference.child(signName).setValue(helperClass);
