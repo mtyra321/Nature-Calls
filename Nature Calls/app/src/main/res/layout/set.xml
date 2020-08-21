@@ -39,7 +39,7 @@
             android:hint="Full Name">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/user_name"
+                android:id="@+id/phone_number2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/ic_human"

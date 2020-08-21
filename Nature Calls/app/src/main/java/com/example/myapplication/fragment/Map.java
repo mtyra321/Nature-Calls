@@ -91,6 +91,8 @@ public class Map extends Fragment implements OnMapReadyCallback, GoogleMap.OnInf
         DatabaseReference mRootRef = database.getReference();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         mRootRef.child("Users").child(user.getUid()).child("location").addValueEventListener(new ValueEventListener() {
+
+            //when location changes on database, lat and long are updated
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 Log.i("chicken", String.valueOf(((Double) dataSnapshot.child("latitude").getValue())));

@@ -65,7 +65,7 @@ public class Setting extends Fragment {
         View viewRoot = inflater.inflate(R.layout.fragment_setting, container, false);
         // Inflate the layout for this fragment
 
-        Button btn = (Button) viewRoot.findViewById(R.id.button3);
+        Button btn = (Button) viewRoot.findViewById(R.id.tellUsWhy);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
