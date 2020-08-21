@@ -43,7 +43,8 @@ public class LocationService extends Service {
     private FusedLocationProviderClient mFusedLocationClient;
     private final static long UPDATE_INTERVAL = 4 * 1000;  /* 4 secs */
     private final static long FASTEST_INTERVAL = 2000; /* 2 sec */
-public Location currentLocation;
+    public Location currentLocation;
+
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
@@ -53,7 +54,7 @@ public Location currentLocation;
     @Override
     public void onCreate() {
         super.onCreate();
-currentLocation = SignIn.currentLocation;
+        currentLocation = SignIn.currentLocation;
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
         if (Build.VERSION.SDK_INT >= 26) {
@@ -106,8 +107,8 @@ currentLocation = SignIn.currentLocation;
                         Location location = locationResult.getLastLocation();
 
                         if (location != null) {
-                      currentLocation = location;
-                           // saveUserLocation(userLocation);
+                            currentLocation = location;
+                            // saveUserLocation(userLocation);
                         }
                     }
                 },

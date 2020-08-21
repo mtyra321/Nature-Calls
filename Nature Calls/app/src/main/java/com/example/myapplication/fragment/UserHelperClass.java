@@ -1,30 +1,49 @@
 package com.example.myapplication.fragment;
 
+import android.location.Location;
+
 public class UserHelperClass {
-    String signName, userEmail, requests;
+    String name, email, requests;
+    Location location;
+
     public UserHelperClass() {
     }
 
-    public UserHelperClass(String signName, String userEmail, String requests) {
-        this.signName = signName;
-        this.userEmail = userEmail;
+    public UserHelperClass(String name, String email, String requests, Location location) {
+        this.name = name;
+        this.email = email;
+        this.requests = requests;
+        this.location = location;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+
+    public UserHelperClass(String name, String email, String requests) {
+        this.name = name;
+        this.email = email;
         this.requests = requests;
     }
 
-    public String getSignName() {
-        return signName;
+    public String getname() {
+        return name;
     }
 
-    public void setSignName(String signName) {
-        this.signName = signName;
+    public void setname(String name) {
+        this.name = name;
     }
 
-    public String getUserEmail() {
-        return userEmail;
+    public String getemail() {
+        return email;
     }
 
-    public void setUserEmail(String userEmail) {
-        this.userEmail = userEmail;
+    public void setemail(String email) {
+        this.email = email;
     }
 
     public String getRequests() {

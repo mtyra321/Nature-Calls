@@ -27,6 +27,13 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.maps.GeoApiContext;
 import com.google.maps.android.clustering.ClusterManager;
 
@@ -52,7 +59,8 @@ public class Map extends Fragment implements OnMapReadyCallback, GoogleMap.OnInf
     private MapViewModel mapViewModel;
     private MapView mMapView;
     public GoogleMap googleMap;
-    private Location currentLocation;
+    private double locationLat;
+    private double locationLong;
     private GeoApiContext mGeoApiContext = null;
     public static final String MAPVIEW_BUNDLE_KEY = "MapViewBundleKey";
     private static final String API_KEY = "AIzaSyAt1HpipYIEY1SoEwiYMlF7TwSNtzDQthY";
@@ -79,10 +87,27 @@ public class Map extends Fragment implements OnMapReadyCallback, GoogleMap.OnInf
             }
         });
         mMapView = (MapView) root.findViewById(R.id.map);
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference mRootRef = database.getReference();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        mRootRef.child("Users").child(user.getUid()).child("location").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Log.i("chicken", String.valueOf(((Double) dataSnapshot.child("latitude").getValue())));
 
+                locationLat = (double) dataSnapshot.child("latitude").getValue();
+                locationLong = (double) dataSnapshot.child("longitude").getValue();
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
         initGoogleMap(savedInstanceState);
-        currentLocation = SignIn.currentLocation;
-        //   this.googleMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude())));
+
+        //   this.googleMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(locationLat, locationLong)));
 
         mMarkerPoints = new ArrayList<>();
         return root;
@@ -95,9 +120,9 @@ public class Map extends Fragment implements OnMapReadyCallback, GoogleMap.OnInf
     public void onMapReady(final GoogleMap googleMap) {
         setMap(googleMap);
         this.googleMap.moveCamera(CameraUpdateFactory.zoomTo(18));
-        this.googleMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude())));
+        this.googleMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(locationLat, locationLong)));
 //this.googleMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(48.81708256072279, -111.7850997671485)));
-                this.googleMap.setOnInfoWindowClickListener(this);
+        this.googleMap.setOnInfoWindowClickListener(this);
         googleMap.setMyLocationEnabled(true);
         addMapMarkers();
     }
@@ -176,7 +201,6 @@ public class Map extends Fragment implements OnMapReadyCallback, GoogleMap.OnInf
                 );
                 mClusterManager.addItem(Austin);
                 mClusterMarkers.add(Austin);
-
 
 
                 ClusterMarker Rigby = new ClusterMarker(
@@ -489,7 +513,7 @@ public class Map extends Fragment implements OnMapReadyCallback, GoogleMap.OnInf
     private void drawRoute(LatLng destination) {
 
         // Getting URL to the Google Directions API
-        String url = getDirectionsUrl(new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude()), destination);
+        String url = getDirectionsUrl(new LatLng(locationLat, locationLong), destination);
 
         DownloadTask downloadTask = new DownloadTask();
 
@@ -510,7 +534,7 @@ public class Map extends Fragment implements OnMapReadyCallback, GoogleMap.OnInf
         String key = "key=" + API_KEY;
 
         // Building the parameters to the web service
-        String parameters = str_origin + "&" + str_dest +"&mode=" +transitMode+ "&" + key;
+        String parameters = str_origin + "&" + str_dest + "&mode=" + transitMode + "&" + key;
 
         // Output format
         String output = "json";
@@ -670,16 +694,6 @@ public class Map extends Fragment implements OnMapReadyCallback, GoogleMap.OnInf
 
 
 }
-
-
-
-
-
-
-
-
-
-
 
 
 //package com.example.myapplication.fragment;

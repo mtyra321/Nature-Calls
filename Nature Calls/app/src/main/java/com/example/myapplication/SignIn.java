@@ -21,6 +21,7 @@ import androidx.fragment.app.Fragment;
 import com.example.myapplication.fragment.HomeFragment;
 import com.example.myapplication.fragment.Map;
 import com.example.myapplication.fragment.Setting;
+import com.example.myapplication.fragment.UserHelperClass;
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.IdpResponse;
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -31,6 +32,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Arrays;
 import java.util.List;
@@ -39,10 +42,12 @@ public class SignIn extends AppCompatActivity {
 
 
     // private static int SPLASH_TIME_OUT = 4000;
-   // private static int SPLASH_TIME_OUT = 4000;
+    // private static int SPLASH_TIME_OUT = 4000;
 //    RecyclerView mRecyclerView;
 //    FirebaseDatabase mFirebaseDatabase;
 //    DatabaseReference mRef;
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference mRootRef = database.getReference();
 
     BottomNavigationView bottomNavigationView;
     private static final int MY_REQUEST_CODE = 7177;
@@ -141,7 +146,8 @@ public class SignIn extends AppCompatActivity {
                 new AuthUI.IdpConfig.EmailBuilder().build(),
                 new AuthUI.IdpConfig.FacebookBuilder().build(),
                 new AuthUI.IdpConfig.GoogleBuilder().build(),
-                new AuthUI.IdpConfig.PhoneBuilder().build()
+                new AuthUI.IdpConfig.PhoneBuilder().build(),
+                new AuthUI.IdpConfig.AnonymousBuilder().build()
         );
 
         showSignInOptions();
@@ -181,6 +187,10 @@ public class SignIn extends AppCompatActivity {
             IdpResponse response = IdpResponse.fromResultIntent(data);
             if (resultCode == RESULT_OK) {
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                UserHelperClass helperClass = new UserHelperClass(user.getDisplayName(), user.getEmail(), "test", currentLocation);
+
+                mRootRef.child("Users").child(user.getUid()).setValue(helperClass);
+
                 Toast.makeText(this, "" + user.getEmail(), Toast.LENGTH_SHORT).show();
                 btn_sign_out.setEnabled(true);
 
@@ -279,7 +289,6 @@ public class SignIn extends AppCompatActivity {
             }
         }
     }
-
 
 
 }
