@@ -37,7 +37,7 @@ public class user_profile extends AppCompatActivity {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         name.setText(user.getDisplayName());
         email.setText(user.getEmail());
-phone.setText(user.getPhoneNumber());
+        phone.setText(user.getPhoneNumber());
         updated.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

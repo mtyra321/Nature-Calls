@@ -25,6 +25,8 @@ import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 
 //import com.codingwithmitch.googlemaps2018.UserClient;
@@ -54,6 +56,8 @@ public class LocationService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
         currentLocation = SignIn.currentLocation;
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
