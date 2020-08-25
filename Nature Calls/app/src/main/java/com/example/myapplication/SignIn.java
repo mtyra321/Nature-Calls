@@ -1,6 +1,8 @@
 package com.example.myapplication;
 
 import android.Manifest;
+import android.app.ActivityManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
@@ -41,6 +43,12 @@ import java.util.List;
 public class SignIn extends AppCompatActivity {
 
 
+    public FusedLocationProviderClient fusedLocationClient;
+    public static Location currentLocation;
+    private static final String FINE_LOCATION = Manifest.permission.ACCESS_FINE_LOCATION;
+    private static final String COURSE_LOCATION = Manifest.permission.ACCESS_COARSE_LOCATION;
+    private static final int LOCATION_PERMISSION_REQUEST_CODE = 1234;
+    public static Boolean mLocationPermissionsGranted = false;
     // private static int SPLASH_TIME_OUT = 4000;
     // private static int SPLASH_TIME_OUT = 4000;
 //    RecyclerView mRecyclerView;
@@ -48,11 +56,13 @@ public class SignIn extends AppCompatActivity {
 //    DatabaseReference mRef;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference mRootRef = database.getReference();
-
     BottomNavigationView bottomNavigationView;
     private static final int MY_REQUEST_CODE = 7177;
     List<AuthUI.IdpConfig> providers;
     Button btn_sign_out;
+//    public Context c = this.getApplicationContext();
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,6 +93,8 @@ public class SignIn extends AppCompatActivity {
             Log.i("Getting location", "about to call get Device location");
 
             getDeviceLocation();
+            startLocationService();
+
             if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
                     != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this,
                     Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -154,6 +166,34 @@ public class SignIn extends AppCompatActivity {
 
     }
 
+    private void startLocationService() {
+
+        if (!isLocationServiceRunning()) {
+            Intent serviceIntent = new Intent(this, LocationService.class);
+            //   this.startService(serviceIntent);
+
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                SignIn.this.startForegroundService(serviceIntent);
+            } else {
+                startService(serviceIntent);
+            }
+        }
+    }
+
+    private boolean isLocationServiceRunning() {
+        ActivityManager manager = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
+        assert manager != null;
+        for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
+            Log.d("taco", "service is: " + service.service.getClassName());
+
+            if ("com.example.myapplication.LocationService".equals(service.service.getClassName())) {
+                Log.d("potato", "isLocationServiceRunning: location service is already running.");
+                return true;
+            }
+        }
+        Log.d("potato", "isLocationServiceRunning: location service is not running.");
+        return false;
+    }
 //    @Override
 //    protected void onStart() {
 //        super.onStart();
@@ -202,13 +242,6 @@ public class SignIn extends AppCompatActivity {
 
     //map stuff
 
-
-    public FusedLocationProviderClient fusedLocationClient;
-    public static Location currentLocation;
-    private static final String FINE_LOCATION = Manifest.permission.ACCESS_FINE_LOCATION;
-    private static final String COURSE_LOCATION = Manifest.permission.ACCESS_COARSE_LOCATION;
-    private static final int LOCATION_PERMISSION_REQUEST_CODE = 1234;
-    private Boolean mLocationPermissionsGranted = false;
 
     private void getDeviceLocation() {
         Log.d("", "getDeviceLocation: getting the devices current location");
@@ -283,6 +316,7 @@ public class SignIn extends AppCompatActivity {
                     }
                     Log.d("", "onRequestPermissionsResult: permission granted");
                     mLocationPermissionsGranted = true;
+
                     //initialize our map
                     //                initMap();
                 }

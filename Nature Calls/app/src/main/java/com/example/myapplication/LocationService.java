@@ -1,4 +1,4 @@
-package com.example.myapplication.fragment;
+package com.example.myapplication;
 
 
 import android.Manifest;
@@ -15,18 +15,28 @@ import android.os.IBinder;
 import android.os.Looper;
 import android.util.Log;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
 
+import com.example.myapplication.R;
 import com.example.myapplication.SignIn;
+import com.firebase.client.Firebase;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import static com.example.myapplication.SignIn.currentLocation;
+import static com.example.myapplication.SignIn.mLocationPermissionsGranted;
 
 
 //import com.codingwithmitch.googlemaps2018.UserClient;
@@ -41,11 +51,13 @@ import com.google.firebase.auth.FirebaseUser;
 public class LocationService extends Service {
 
     private static final String TAG = "LocationService";
-
+    FirebaseUser user;
     private FusedLocationProviderClient mFusedLocationClient;
     private final static long UPDATE_INTERVAL = 4 * 1000;  /* 4 secs */
     private final static long FASTEST_INTERVAL = 2000; /* 2 sec */
-    public Location currentLocation;
+
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference mRootRef = database.getReference();
 
     @Nullable
     @Override
@@ -56,10 +68,9 @@ public class LocationService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-        currentLocation = SignIn.currentLocation;
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+        user = FirebaseAuth.getInstance().getCurrentUser();
 
         if (Build.VERSION.SDK_INT >= 26) {
             String CHANNEL_ID = "my_channel_01";
@@ -102,7 +113,10 @@ public class LocationService extends Service {
             return;
         }
         Log.d(TAG, "getLocation: getting location information.");
+
         mFusedLocationClient.requestLocationUpdates(mLocationRequestHighAccuracy, new LocationCallback() {
+
+
                     @Override
                     public void onLocationResult(LocationResult locationResult) {
 
@@ -112,8 +126,10 @@ public class LocationService extends Service {
 
                         if (location != null) {
                             currentLocation = location;
-                            // saveUserLocation(userLocation);
+                            mRootRef.child("Users").child(user.getUid()).child("Location").setValue(currentLocation);
+
                         }
+
                     }
                 },
                 Looper.myLooper()); // Looper.myLooper tells this to repeat forever until thread is destroyed

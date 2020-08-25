@@ -71,6 +71,7 @@ public class Map extends Fragment implements OnMapReadyCallback, GoogleMap.OnInf
     private ClusterManager<ClusterMarker> mClusterManager;
     private MyClusterManagerRenderer mClusterManagerRenderer;
     private ArrayList<ClusterMarker> mClusterMarkers = new ArrayList<>();
+    private Location currentLocation;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -90,6 +91,9 @@ public class Map extends Fragment implements OnMapReadyCallback, GoogleMap.OnInf
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference mRootRef = database.getReference();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        Object o = mRootRef.child("Users").child(user.getUid()).child("Location");
+        initGoogleMap(savedInstanceState);
+
         mRootRef.child("Users").child(user.getUid()).child("location").addValueEventListener(new ValueEventListener() {
 
             //when location changes on database, lat and long are updated
@@ -99,6 +103,7 @@ public class Map extends Fragment implements OnMapReadyCallback, GoogleMap.OnInf
 
                 locationLat = (double) dataSnapshot.child("latitude").getValue();
                 locationLong = (double) dataSnapshot.child("longitude").getValue();
+           //     googleMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(locationLat, locationLong)));
 
             }
 
@@ -107,7 +112,7 @@ public class Map extends Fragment implements OnMapReadyCallback, GoogleMap.OnInf
 
             }
         });
-        initGoogleMap(savedInstanceState);
+
 
         //   this.googleMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(locationLat, locationLong)));
 
@@ -122,8 +127,8 @@ public class Map extends Fragment implements OnMapReadyCallback, GoogleMap.OnInf
     public void onMapReady(final GoogleMap googleMap) {
         setMap(googleMap);
         this.googleMap.moveCamera(CameraUpdateFactory.zoomTo(18));
+
         this.googleMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(locationLat, locationLong)));
-//this.googleMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(48.81708256072279, -111.7850997671485)));
         this.googleMap.setOnInfoWindowClickListener(this);
         googleMap.setMyLocationEnabled(true);
         addMapMarkers();
