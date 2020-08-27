@@ -63,7 +63,7 @@ public class stcN extends AppCompatActivity {
         roomNuber = intent.getStringExtra("roomNumber");
 
 
-        reff = FirebaseDatabase.getInstance().getReference().child("Bathrooms").child("Bathrooms").child(building).child(roomNuber).child("comment");
+        reff = FirebaseDatabase.getInstance().getReference().child("Bathrooms").child("Byui").child(building).child(roomNuber).child("comment");
 
         btnsave.setOnClickListener(new View.OnClickListener() {
             @Override

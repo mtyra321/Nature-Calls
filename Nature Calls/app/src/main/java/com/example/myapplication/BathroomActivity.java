@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -26,6 +28,7 @@ public class BathroomActivity extends AppCompatActivity {
     private String description;
     private List<String> tags;
     private List<Ratings> ratings;
+    private List<String> comments;
     private String roomNumber;
     private String photo;
     private String building;
@@ -37,26 +40,31 @@ public class BathroomActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bathroom_info);
-        button = (Button)findViewById(R.id.reviewBtn);
+        button = (Button) findViewById(R.id.reviewBtn);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openActivty2();
             }
         });
-
+        LinearLayout commentView = findViewById(R.id.comments);
         Intent intent = getIntent();
         description = intent.getStringExtra("Description");
         roomNumber = intent.getStringExtra("Room Number");
         building = intent.getStringExtra("Building");
         rating = intent.getLongExtra("Rating", 0);
         tags = intent.getStringArrayListExtra("Tags");
-        //ratings = intent.getParcelableArrayListExtra("Ratings");
+        comments = intent.getStringArrayListExtra("Comment");
+        for (String j : comments) {
+            EditText e = new EditText(this);
+            e.setText(j);
+            commentView.addView(e );
+        }
         TextView name = findViewById(R.id.bRoomName);
         name.setText(building + " " + roomNumber);
-        String s = " " ;
-        for (String k: tags){
-            s += k+" ";
+        String s = " ";
+        for (String k : tags) {
+            s += k + " ";
         }
 
         TextView tagsView = findViewById(R.id.Tags);
@@ -103,7 +111,7 @@ public class BathroomActivity extends AppCompatActivity {
 
     }
 
-    public void openActivty2(){
+    public void openActivty2() {
         Intent intent = new Intent(this, stcN.class);
         intent.putExtra("building", building);
         intent.putExtra("roomNumber", roomNumber);

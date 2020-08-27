@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -18,7 +19,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Map;
+import java.util.Set;
 
 public class BathroomList extends AppCompatActivity {
 
@@ -41,10 +44,12 @@ public class BathroomList extends AppCompatActivity {
     public void populateBathroomList(String name) {
         Intent intent = new Intent(this, BathroomActivity.class);
         bathrooms = new ArrayList<>();
+
         mRootRef.child("Bathrooms").child("Byui").child(name).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 Map<String, Object> map = (Map<String, Object>) dataSnapshot.getValue();
+                Map<String,Object> commentsmap;
                 Log.i("setting Bathrooms", map.toString());
                 //ListView.s = text;
                 for (Object j : map.keySet()) {
@@ -57,7 +62,15 @@ public class BathroomList extends AppCompatActivity {
                     Log.i("d=", d.toString());
                     b.setDescription(d.get("Description").toString());
                     b.setRating((long) d.get("OverallPoop"));
-                    b.setRatings((ArrayList) d.get("Ratings"));
+                   commentsmap = (Map<String, Object>)d.get("comment");
+                    ArrayList<String> comments = new ArrayList<>();
+                    for (Object s : commentsmap.keySet()) {
+                        Log.i("tagskeyset", s.toString());
+                        Object c = commentsmap.get(s);
+                        comments.add(c.toString());
+                    }
+                    b.setComments(comments);
+
                     Map<String, Object> tagsmap = (Map) d.get("Tags");
                     ArrayList<String> tags = new ArrayList<>();
                     for (Object s : tagsmap.keySet()) {
@@ -88,8 +101,9 @@ public class BathroomList extends AppCompatActivity {
                         intent.putExtra("Building", bathrooms.get(0).getBuilding());
                         intent.putExtra("Description", bathrooms.get(0).getDescription());
                         intent.putExtra("Rating", bathrooms.get(0).getRating());
+                        intent.putExtra("Comment", bathrooms.get(0).getComments());
                         intent.putExtra("Room Number", bathrooms.get(0).getRoomNumber());
-                        intent.putExtra("Ratings",  bathrooms.get(0).getRatings());
+                        intent.putExtra("Ratings", bathrooms.get(0).getRatings());
                         intent.putStringArrayListExtra("Tags", bathrooms.get(0).getTags());
                         startActivity(intent);
                     }
@@ -110,6 +124,7 @@ public class BathroomList extends AppCompatActivity {
                         intent.putExtra("Building", bathrooms.get(1).getBuilding());
                         intent.putExtra("Description", bathrooms.get(1).getDescription());
                         intent.putExtra("Rating", bathrooms.get(1).getRating());
+                        intent.putExtra("Comment", bathrooms.get(1).getComments());
                         intent.putExtra("Room Number", bathrooms.get(1).getRoomNumber());
                         intent.putExtra("Ratings", bathrooms.get(1).getRatings());
                         intent.putStringArrayListExtra("Tags", bathrooms.get(1).getTags());
@@ -130,8 +145,9 @@ public class BathroomList extends AppCompatActivity {
                         intent.putExtra("Building", bathrooms.get(2).getBuilding());
                         intent.putExtra("Description", bathrooms.get(2).getDescription());
                         intent.putExtra("Rating", bathrooms.get(2).getRating());
+                        intent.putExtra("Comment", bathrooms.get(2).getComments());
                         intent.putExtra("Room Number", bathrooms.get(2).getRoomNumber());
-                        intent.putExtra("Ratings",  bathrooms.get(2).getRatings());
+                        intent.putExtra("Ratings", bathrooms.get(2).getRatings());
                         intent.putStringArrayListExtra("Tags", bathrooms.get(2).getTags());
                         startActivity(intent);
                     }
@@ -148,8 +164,9 @@ public class BathroomList extends AppCompatActivity {
                         intent.putExtra("Building", bathrooms.get(3).getBuilding());
                         intent.putExtra("Description", bathrooms.get(3).getDescription());
                         intent.putExtra("Rating", bathrooms.get(3).getRating());
+                        intent.putExtra("Comment", bathrooms.get(3).getComments());
                         intent.putExtra("Room Number", bathrooms.get(3).getRoomNumber());
-                        intent.putExtra("Ratings",  bathrooms.get(3).getRatings());
+                        intent.putExtra("Ratings", bathrooms.get(3).getRatings());
                         intent.putStringArrayListExtra("Tags", bathrooms.get(3).getTags());
                         startActivity(intent);
                     }

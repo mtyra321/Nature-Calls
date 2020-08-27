@@ -11,6 +11,16 @@ public class Bathroom implements Serializable {
     private String description;
     private ArrayList<String> tags;
     private ArrayList<Ratings> ratings;
+    private ArrayList<String> comments;
+
+    public ArrayList<String> getComments() {
+        return comments;
+    }
+
+    public void setComments(ArrayList<String> comments) {
+        this.comments = comments;
+    }
+
     private String roomNumber;
     private String photo;
     private String building;
