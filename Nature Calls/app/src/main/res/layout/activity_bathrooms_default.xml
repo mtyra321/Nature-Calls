@@ -15,7 +15,7 @@
         android:layout_marginBottom="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/quick_view_toilet" />
+        app:srcCompat="@drawable/toilet_paper" />
 
     <ImageView
         android:id="@+id/imageView3"
