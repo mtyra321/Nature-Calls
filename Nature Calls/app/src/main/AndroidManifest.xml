@@ -31,7 +31,7 @@
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyAt1HpipYIEY1SoEwiYMlF7TwSNtzDQthY" />
+            android:value="Put Key Back" />
 
         <activity android:name=".SignIn">
             <intent-filter>
