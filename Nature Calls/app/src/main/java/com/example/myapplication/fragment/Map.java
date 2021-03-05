@@ -63,7 +63,7 @@ public class Map extends Fragment implements OnMapReadyCallback, GoogleMap.OnInf
     private double locationLong;
     private GeoApiContext mGeoApiContext = null;
     public static final String MAPVIEW_BUNDLE_KEY = "MapViewBundleKey";
-    private static final String API_KEY = "AIzaSyAt1HpipYIEY1SoEwiYMlF7TwSNtzDQthY";
+    private static final String API_KEY = "Put Key back";
     private static final String TAG = "MapFragment";
     private String transitMode = "driving";
     private Polyline mPolyline;
